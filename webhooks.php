@@ -2,7 +2,14 @@
 require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=';
-
+$channal_secret = '576c647ae353642081fe5c8fa4826f80';
+$usname = $channal_secret->getProfile('<userId>');
+if ($usname->isSucceeded()) {
+    $profile = $usname->getJSONDecodedBody();
+    echo $profile['displayName'];
+    echo $profile['pictureUrl'];
+    echo $profile['statusMessage'];
+}
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -14,13 +21,13 @@ foreach ($events['events'] as $event) {
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Get text sent
-$text = $event['source']['userId'];
+$text = $event['source']$profile['displayName'];
 // Get replyToken
 $replyToken = $event['replyToken'];
 // Build message to reply back
 $messages = [
 'type' => 'text',
-'text' => "สวัสดี $text" 
+'text' => $text
 ];
 // Make a POST Request to Messaging API to reply to sender
 $url = 'https://api.line.me/v2/bot/message/reply';
@@ -28,9 +35,6 @@ $data = [
 'replyToken' => $replyToken,
 'messages' => [$messages],
 ];
-}
-}
-}
 $post = json_encode($data);
 $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 $ch = curl_init($url);
@@ -42,4 +46,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 echo $result . "\r\n";
+}
+}
+}
 echo "OK";
