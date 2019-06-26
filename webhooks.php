@@ -3,15 +3,13 @@ require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=';
 $channal_secret = '576c647ae353642081fe5c8fa4826f80';
+
+// Get POST body content
+$content = file_get_contents('php://input');
 $usname = $channal_secret->getProfile('<userId>');
 if ($usname->isSucceeded()) {
     $profile = $usname->getJSONDecodedBody();
-    echo $profile['displayName'];
-    echo $profile['pictureUrl'];
-    echo $profile['statusMessage'];
 }
-// Get POST body content
-$content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
