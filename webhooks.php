@@ -14,13 +14,13 @@ foreach ($events['events'] as $event) {
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Get text sent
-$text = $event['source']['U53415e17fa46a70c52201bfe3633f97a'];
+$text = $event['source']['displayName'];
 // Get replyToken
 $replyToken = $event['replyToken'];
 // Build message to reply back
 $messages = [
 'type' => 'text',
-'text' => "สวัสดีงับ"
+'text' => "สวัสดี" $text
 ];
 // Make a POST Request to Messaging API to reply to sender
 $url = 'https://api.line.me/v2/bot/message/reply';
@@ -28,6 +28,9 @@ $data = [
 'replyToken' => $replyToken,
 'messages' => [$messages],
 ];
+}
+}
+}
 $post = json_encode($data);
 $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 $ch = curl_init($url);
@@ -39,7 +42,4 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 echo $result . "\r\n";
-}
-}
-}
 echo "OK";
