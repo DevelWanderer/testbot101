@@ -2,7 +2,7 @@
 require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=';
-
+$profile = "https://api.line.me/v2/bot/profile/";
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -14,7 +14,7 @@ foreach ($events['events'] as $event) {
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Get text sent
-$text = $event['source']['userId'];
+$text = $event['source']['userId']['displayname'];
 // Get replyToken
 $replyToken = $event['replyToken'];
 // Build message to reply back
