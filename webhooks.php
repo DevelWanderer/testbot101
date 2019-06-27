@@ -14,7 +14,7 @@ foreach ($events['events'] as $event) {
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Get text sent
-$text = $event['source']['text'];
+$text = $event['source']['userId'];
 // Get replyToken
 $replyToken = $event['replyToken'];
 // Build message to reply back
@@ -29,7 +29,6 @@ $data = [
 'messages' => [$messages],
 ];
 $post = json_encode($data);
-
 $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
