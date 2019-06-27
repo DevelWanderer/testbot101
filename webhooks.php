@@ -2,9 +2,11 @@
 require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=';
-$profile = "https://api.line.me/v2/bot/profile/";
-// Get POST body content
 $content = file_get_contents('php://input');
+$arrJson = json_decode($content,true);
+$profile = "https://api.line.me/v2/bot/profile/".$arrJson['event'[0]['source']['userId'];
+
+
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
