@@ -29,7 +29,7 @@ if ($response->isSucceeded()) {
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
-     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$profile['displayName'];
+     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$id;
      $arrayPostData['messages'][1]['type'] = "text";
      $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
      $arrayPostData['messages'][2]['type'] = "sticker";
