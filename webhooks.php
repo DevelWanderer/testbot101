@@ -23,7 +23,14 @@ $content = file_get_contents('php://input');
   $name1 = 'เอิร์ท';
   $name2 = 'ต๊อบ';
   $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
-
+/*{  
+   "type":"uri",
+   "label":"View details",
+   "uri":"http://example.com/page/222",
+   "altUri": {
+      "desktop" : "http://example.com/pc/page/222"
+   }
+}*/
   if($id==$queryfromdb1)
   {
      if($message == "สวัสดี"){
@@ -35,8 +42,9 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][2]['type'] = "sticker";
      $arrayPostData['messages'][2]['packageId'] = "2";
      $arrayPostData['messages'][2]['stickerId'] = "34";
-     $arrayPostData['messages'][3]['type'] = "text";
-     $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
+      $arrayPostData['messages'][3]['type'] = "uri";
+       $arrayPostData['messages'][3]['label'] = "สมัครสมาชิก";
+     $arrayPostData['messages'][3]['uri'] = "https://erp.wealththai.net/quickregister??".$id;
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
@@ -51,8 +59,9 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][2]['type'] = "sticker";
      $arrayPostData['messages'][2]['packageId'] = "2";
      $arrayPostData['messages'][2]['stickerId'] = "34";
-     $arrayPostData['messages'][3]['type'] = "text";
-     $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
+     $arrayPostData['messages'][3]['type'] = "uri";
+       $arrayPostData['messages'][3]['label'] = "สมัครสมาชิก";
+     $arrayPostData['messages'][3]['uri'] = "https://erp.wealththai.net/quickregister??".$id;
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
