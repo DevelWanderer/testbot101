@@ -28,7 +28,7 @@ $content = file_get_contents('php://input');
   {
      if($message == "สวัสดี"){
      $arrayPostData{
- "to": "U3c28...",
+ "to": $id,
  "messages": [
   {
    "type": "flex",
