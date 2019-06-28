@@ -1,10 +1,8 @@
 <?php // callback.php
-GET "https://api.line.me/v2/bot/profile/{userId}";
 require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-//$access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=';
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '576c647ae353642081fe5c8fa4826f80']);
+$access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=';
+
 
 
 // Get POST body content
@@ -21,7 +19,7 @@ $content = file_get_contents('php://input');
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
   $id = $arrayJson['events'][0]['source']['userId'];
-  $response = $bot->getProfile($id);
+  $response = $access_token->getProfile($id);
   if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
    /* echo $profile['displayName'];
