@@ -42,9 +42,8 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][2]['type'] = "sticker";
      $arrayPostData['messages'][2]['packageId'] = "2";
      $arrayPostData['messages'][2]['stickerId'] = "34";
-      $arrayPostData['messages'][3]['type'] = "uri";
-     $arrayPostData['messages'][3]['uri'] = "https://erp.wealththai.net/quickregister??".$id;
-
+     $arrayPostData['messages'][3]['type'] = "text";
+     $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister".$id;
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
@@ -59,8 +58,8 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][2]['type'] = "sticker";
      $arrayPostData['messages'][2]['packageId'] = "2";
      $arrayPostData['messages'][2]['stickerId'] = "34";
-           $arrayPostData['messages'][3]['type'] = "uri";
-     $arrayPostData['messages'][3]['uri'] = "https://erp.wealththai.net/quickregister??".$id;
+     $arrayPostData['messages'][3]['type'] = "text";
+     $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister".$id;
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
