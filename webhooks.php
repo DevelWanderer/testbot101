@@ -1,6 +1,6 @@
 <?php // callback.php
-require "vendor/autoload.php";
-require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+//require "vendor/autoload.php";
+//require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=';
 
 
@@ -19,7 +19,9 @@ $content = file_get_contents('php://input');
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
-     
+     $arrayPostData['messages'][1]['type'] = "sticker";
+     $arrayPostData['messages'][1]['packageId'] = "2";
+     $arrayPostData['messages'][1]['stickerId'] = "34";
      pushMsg($arrayHeader,$arrayPostData);
   }
   function pushMsg($arrayHeader,$arrayPostData){
