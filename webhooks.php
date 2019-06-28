@@ -3,7 +3,7 @@ require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=');
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '576c647ae353642081fe5c8fa4826f80']);
-$response = $bot->getProfile('<userId>');
+
 
 
 // Get POST body content
@@ -30,7 +30,7 @@ $content = file_get_contents('php://input');
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
-     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$id;
+     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$profile['displayname'];
      $arrayPostData['messages'][1]['type'] = "text";
      $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
      $arrayPostData['messages'][2]['type'] = "sticker";
