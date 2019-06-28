@@ -17,8 +17,12 @@ $content = file_get_contents('php://input');
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
   $id = $arrayJson['events'][0]['source']['userId'];
-  #ตัวอย่าง Message Type "Text + Sticker"
-  if($arrayjson['type'] == 'message' && $arrayJson['message']['type'] == 'text'){
+
+     if (!is_null($message['events'])) {
+// Loop through each event
+     foreach ($message['events'] as $message) {
+// Reply only when message sent is in 'text' format
+     if ($message['type'] == 'message' && $message['message']['type'] == 'text'){
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
