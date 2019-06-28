@@ -6,6 +6,7 @@ $access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wK
 
 // Get POST body content
 $content = file_get_contents('php://input');
+
   $arrayJson = json_decode($content, true);
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
@@ -17,11 +18,17 @@ $content = file_get_contents('php://input');
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
   $id = $arrayJson['events'][0]['source']['userId'];
-
+  $response = $bot->getProfile($id);
+if ($response->isSucceeded()) {
+    $profile = $response->getJSONDecodedBody();
+    //echo $profile['displayName'];
+    //echo $profile['pictureUrl'];
+    //echo $profile['statusMessage'];
+}
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
-     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$id;
+     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$profile['displayName'];
      $arrayPostData['messages'][1]['type'] = "text";
      $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
      $arrayPostData['messages'][2]['type'] = "sticker";
