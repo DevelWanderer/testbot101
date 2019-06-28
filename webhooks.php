@@ -23,46 +23,55 @@ $content = file_get_contents('php://input');
   $name1 = 'เอิร์ท';
   $name2 = 'ต๊อบ';
   $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
-/*"messages": [
+/*{
+ "to": "U3c28a...",
+ "messages": [
   {
-   "type": "flex",
-   "altText": "This is a Flex Message",
-   "contents": {
-    "type": "bubble",
-    "body": {
-     "type": "box",
-     "layout": "vertical",
-     "contents": [
-      {
-       "type": "button",
-       "style": "primary",
-       "height": "sm",
-       "action": {
-        "type": "uri",
-        "label": "Add to Cart",
-        "uri": "https://developers.line.me"
-       }
+   "type": "text",
+   "text": "Hello Quick Reply!",
+   "quickReply": {
+    "items": [
+     {
+      "type": "action",
+      "action": {
+       "type":"message",
+       "label":"Message",
+       "text":"Hello World!"
       }
-     ]
-    }
+     }
+    ]
    }
   }
- ]*/
+ ]
+}*/
   if($id==$queryfromdb1)
   {
-     $arrayPostData['to'] = $id;
-     $arrayPostData['messages'][0]['type'] = "text";
-     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
-     $arrayPostData['messages'][1]['type'] = "text";
-     $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
-     $arrayPostData['messages'][2]['type'] = "sticker";
-     $arrayPostData['messages'][2]['packageId'] = "2";
-     $arrayPostData['messages'][2]['stickerId'] = "34";
-     $arrayPostData['messages'][3]['type'] = "text";
-     $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
+    
+     $arrayPostData = {
+ "to": $id,
+ "messages": [
+  {
+   "type": "text",
+   "text": "Hello Quick Reply!",
+   "quickReply": {
+    "items": [
+     {
+      "type": "action",
+      "action": {
+       "type":"message",
+       "label":"Message",
+       "text":"Hello World!"
+      }
+     }
+    ]
+   }
+  }
+ ]
+}
+    
      pushMsg($arrayHeader,$arrayPostData);
   
-  }
+  
   elseif($id==$queryfromdb2)
   {
      
