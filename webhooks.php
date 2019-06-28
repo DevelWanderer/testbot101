@@ -45,6 +45,7 @@ $content = file_get_contents('php://input');
       $arrayPostData['messages'][3]['type'] = "uri";
        $arrayPostData['messages'][3]['label'] = "สมัครสมาชิก";
      $arrayPostData['messages'][3]['uri'] = "https://erp.wealththai.net/quickregister??".$id;
+       $arrayPostData['messages'][3]['altUri'] = "https://erp.wealththai.net/quickregister??";
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
@@ -62,6 +63,7 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][3]['type'] = "uri";
        $arrayPostData['messages'][3]['label'] = "สมัครสมาชิก";
      $arrayPostData['messages'][3]['uri'] = "https://erp.wealththai.net/quickregister??".$id;
+       $arrayPostData['messages'][3]['altUri'] = "https://erp.wealththai.net/quickregister??";
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
