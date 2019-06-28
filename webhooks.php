@@ -1,6 +1,6 @@
 <?php // callback.php
-//require "vendor/autoload.php";
-//require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+require "vendor/autoload.php";
+require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=';
 
 
@@ -9,7 +9,7 @@ $content = file_get_contents('php://input');
   $arrayJson = json_decode($content, true);
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
-  $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+  $arrayHeader[] = "Authorization: Bearer {$access_token}";
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
