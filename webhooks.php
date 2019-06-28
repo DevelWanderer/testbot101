@@ -19,17 +19,38 @@ $content = file_get_contents('php://input');
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
   $id = $arrayJson['events'][0]['source']['userId'];
+  $queryfromdb1 = 'U247e07dbd7112244b44c934915d5aceb';
+  $name1 = 'เอิร์ท';
+  $name2 = 'ต๊อบ';
+  $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
 
+  if($id==$queryfromdb1)
+  {
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
-     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
+     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
      $arrayPostData['messages'][1]['type'] = "text";
      $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
      $arrayPostData['messages'][2]['type'] = "sticker";
      $arrayPostData['messages'][2]['packageId'] = "2";
      $arrayPostData['messages'][2]['stickerId'] = "34";
      pushMsg($arrayHeader,$arrayPostData);
+  }
+  }
+  elseif($id==$queryfromdb2)
+  {
+     if($message == "สวัสดี"){
+     $arrayPostData['to'] = $id;
+     $arrayPostData['messages'][0]['type'] = "text";
+     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name2;
+     $arrayPostData['messages'][1]['type'] = "text";
+     $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
+     $arrayPostData['messages'][2]['type'] = "sticker";
+     $arrayPostData['messages'][2]['packageId'] = "2";
+     $arrayPostData['messages'][2]['stickerId'] = "34";
+     pushMsg($arrayHeader,$arrayPostData);
+  }
   }
   function pushMsg($arrayHeader,$arrayPostData){
      $strUrl = "https://api.line.me/v2/bot/message/push";
