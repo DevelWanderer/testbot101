@@ -28,18 +28,8 @@ $content = file_get_contents('php://input');
   {
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
-     $arrayPostData['messages'][0]['type'] = "flex";
-     $arrayPostData['messages'][0]['altText'] = "สวัสดีจ้าาา".$name1;
-     $arrayPostData['messages'][0]['contents'] = "สวัสดีจ้าาา".$name1;
-       $arrayPostData['messages'][0]['contents'][0]['type'] = "สวัสดีจ้าาา".$name1;
-       $arrayPostData['messages'][0]['contents'][0]['body'][0]['type'] = "box";
-       $arrayPostData['messages'][0]['contents'][0]['body'][1]['layout'] = "vertical";
-       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][0]['type'] = "button";
-       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][1]['style'] = "primary";
-       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][2]['height'] = "sm";
-       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][3]['action'][0]['type'] = "uri";
-       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][3]['action'][1]['label'] = "สมัคร";
-       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][3]['action'][1]['uri'] = "https://erp.wealththai.net/quickregister??".$id;
+     $arrayPostData['messages'][0]['type'] = "text";
+     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
      $arrayPostData['messages'][1]['type'] = "text";
      $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
      $arrayPostData['messages'][2]['type'] = "sticker";
