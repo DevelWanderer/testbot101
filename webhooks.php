@@ -19,7 +19,7 @@ $content = file_get_contents('php://input');
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
   $id = $arrayJson['events'][0]['source']['userId'];
-  $response = $bot->getProfile($id);
+  //$response = $bot->getProfile($id);
 
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
