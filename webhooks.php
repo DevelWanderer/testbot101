@@ -12,9 +12,9 @@ $content = file_get_contents('php://input');
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
- 
-  
-  
+
+
+
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
@@ -23,58 +23,44 @@ $content = file_get_contents('php://input');
   $name1 = 'เอิร์ท';
   $name2 = 'ต๊อบ';
   $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
-/*{
- "to": "U3c28a...",
- "messages": [
-  {
-   "type": "text",
-   "text": "Hello Quick Reply!",
-   "quickReply": {
-    "items": [
-     {
-      "type": "action",
-      "action": {
-       "type":"message",
-       "label":"Message",
-       "text":"Hello World!"
-      }
-     }
-    ]
-   }
-  }
- ]
-}*/
+
   if($id==$queryfromdb1)
   {
-    
-     $arrayPostData = {
- "to": $id,
+     if($message == "สวัสดี"){
+     $arrayPostData{
+ "to": "U3c28...",
  "messages": [
   {
-   "type": "text",
-   "text": "Hello Quick Reply!",
-   "quickReply": {
-    "items": [
-     {
-      "type": "action",
-      "action": {
-       "type":"message",
-       "label":"Message",
-       "text":"Hello World!"
+   "type": "flex",
+   "altText": "This is a Flex Message",
+   "contents": {
+    "type": "bubble",
+    "body": {
+     "type": "box",
+     "layout": "vertical",
+     "contents": [
+      {
+       "type": "button",
+       "style": "primary",
+       "height": "sm",
+       "action": {
+        "type": "uri",
+        "label": "Add to Cart",
+        "uri": "https://developers.line.me"
+       }
       }
-     }
-    ]
+     ]
+    }
    }
   }
  ]
 }
-    
      pushMsg($arrayHeader,$arrayPostData);
-  
-  
+  }
+  }
   elseif($id==$queryfromdb2)
   {
-     
+     if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name2;
@@ -86,7 +72,7 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][3]['type'] = "text";
      $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
      pushMsg($arrayHeader,$arrayPostData);
-  
+  }
   }
   function pushMsg($arrayHeader,$arrayPostData){
      $strUrl = "https://api.line.me/v2/bot/message/push";
@@ -100,7 +86,7 @@ $content = file_get_contents('php://input');
      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
      $result = curl_exec($ch);
      curl_close ($ch);
-      
+
 
   }
   exit;
