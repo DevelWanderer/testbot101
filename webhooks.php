@@ -20,12 +20,7 @@ $content = file_get_contents('php://input');
   //รับ id ของผู้ใช้
   $id = $arrayJson['events'][0]['source']['userId'];
   $response = $bot->getProfile($id);
-if ($response->isSucceeded()) {
-    $profile = $response->getJSONDecodedBody();
-    //echo $profile['displayName'];
-    //echo $profile['pictureUrl'];
-    //echo $profile['statusMessage'];
-}
+
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
