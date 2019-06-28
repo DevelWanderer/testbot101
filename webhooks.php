@@ -12,11 +12,7 @@ $content = file_get_contents('php://input');
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
   $response = $bot->getProfile('<userId>');
   if ($response->isSucceeded()) {
-    $profile = $response->getJSONDecodedBody();
-    echo $profile['displayName'];
-    echo $profile['pictureUrl'];
-    echo $profile['statusMessage'];
-}
+  
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
@@ -45,6 +41,11 @@ $content = file_get_contents('php://input');
      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
      $result = curl_exec($ch);
      curl_close ($ch);
+      $profile = $response->getJSONDecodedBody();
+    echo $profile['displayName'];
+    echo $profile['pictureUrl'];
+    echo $profile['statusMessage'];
+}
   }
   exit;
 ?>
