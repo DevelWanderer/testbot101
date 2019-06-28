@@ -19,9 +19,7 @@ $content = file_get_contents('php://input');
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
-     $arrayPostData['messages'][1]['type'] = "sticker";
-     $arrayPostData['messages'][1]['packageId'] = "2";
-     $arrayPostData['messages'][1]['stickerId'] = "34";
+     
      pushMsg($arrayHeader,$arrayPostData);
   }
   function pushMsg($arrayHeader,$arrayPostData){
