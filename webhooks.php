@@ -23,17 +23,33 @@ $content = file_get_contents('php://input');
   $name1 = 'เอิร์ท';
   $name2 = 'ต๊อบ';
   $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
-/*{  
-   "type":"uri",
-   "label":"View details",
-   "uri":"http://example.com/page/222",
-   "altUri": {
-      "desktop" : "http://example.com/pc/page/222"
+/*"messages": [
+  {
+   "type": "flex",
+   "altText": "This is a Flex Message",
+   "contents": {
+    "type": "bubble",
+    "body": {
+     "type": "box",
+     "layout": "vertical",
+     "contents": [
+      {
+       "type": "button",
+       "style": "primary",
+       "height": "sm",
+       "action": {
+        "type": "uri",
+        "label": "Add to Cart",
+        "uri": "https://developers.line.me"
+       }
+      }
+     ]
+    }
    }
-}*/
+  }
+ ]*/
   if($id==$queryfromdb1)
   {
-     if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
@@ -45,11 +61,11 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][3]['type'] = "text";
      $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
      pushMsg($arrayHeader,$arrayPostData);
-  }
+  
   }
   elseif($id==$queryfromdb2)
   {
-     if($message == "สวัสดี"){
+     
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name2;
@@ -61,7 +77,7 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][3]['type'] = "text";
      $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
      pushMsg($arrayHeader,$arrayPostData);
-  }
+  
   }
   function pushMsg($arrayHeader,$arrayPostData){
      $strUrl = "https://api.line.me/v2/bot/message/push";
