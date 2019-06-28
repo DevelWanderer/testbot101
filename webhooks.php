@@ -14,20 +14,13 @@ foreach ($events['events'] as $event) {
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Get text sent
-if($text = $event['source']['userId : U53415e17fa46a70c52201bfe3633f97a']){
+$text = $event['source']['userId'];
 // Get replyToken
 $replyToken = $event['replyToken'];
 // Build message to reply back
 $messages = [
 'type' => 'text',
-'text' => "ฮัลโหลนัท"
-];
-}
-else ($replyToken = $event['replyToken'])
-// Build message to reply back
-$messages = [
-'type' => 'text',
-'text' => "ฮัลโหล"
+'text' => $text
 ];
 // Make a POST Request to Messaging API to reply to sender
 $url = 'https://api.line.me/v2/bot/message/reply';
