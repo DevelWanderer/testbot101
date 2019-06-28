@@ -18,7 +18,7 @@ $content = file_get_contents('php://input');
   //รับ id ของผู้ใช้
   $id = $arrayJson['events'][0]['source']['userId'];
 
-     if($message == ""){
+     if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
      $arrayPostData['messages'][0]['type'] = "text";
      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
