@@ -2,19 +2,12 @@
 require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'Z/vaB91Q/WsmdQLWN1UwFl5k6I+fnBwcHZSju9jIshHsZ8NpD5GiGirPc6FQ/wKKwD5qViTXHs66qDThOvCjYez41saC2XWUxmFJAjAzDWNrKWA/xFA1uELYyIFiXKuc5RxgAQxyJLc58FofJTS0GwdB04t89/1O/w1cDnyilFU=';
-
-
-
 // Get POST body content
 $content = file_get_contents('php://input');
-
   $arrayJson = json_decode($content, true);
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
-
-
-
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
@@ -23,13 +16,22 @@ $content = file_get_contents('php://input');
   $name1 = 'เอิร์ท';
   $name2 = 'ต๊อบ';
   $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
-
   if($id==$queryfromdb1)
   {
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
-     $arrayPostData['messages'][0]['type'] = "text";
-     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
+     $arrayPostData['messages'][0]['type'] = "flex";
+     $arrayPostData['messages'][0]['altText'] = "สวัสดีจ้าาา".$name1;
+     $arrayPostData['messages'][0]['contents'] = "สวัสดีจ้าาา".$name1;
+       $arrayPostData['messages'][0]['contents'][0]['type'] = "สวัสดีจ้าาา".$name1;
+       $arrayPostData['messages'][0]['contents'][0]['body'][0]['type'] = "box";
+       $arrayPostData['messages'][0]['contents'][0]['body'][1]['layout'] = "vertical";
+       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][0]['type'] = "button";
+       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][1]['style'] = "primary";
+       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][2]['height'] = "sm";
+       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][3]['action'][0]['type'] = "uri";
+       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][3]['action'][1]['label'] = "สมัคร";
+       $arrayPostData['messages'][0]['contents'][0]['body'][1]['contents'][3]['action'][1]['uri'] = "https://erp.wealththai.net/quickregister??".$id;
      $arrayPostData['messages'][1]['type'] = "text";
      $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
      $arrayPostData['messages'][2]['type'] = "sticker";
@@ -68,8 +70,6 @@ $content = file_get_contents('php://input');
      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
      $result = curl_exec($ch);
      curl_close ($ch);
-
-
   }
   exit;
 ?>
