@@ -26,30 +26,17 @@ $content = file_get_contents('php://input');
 
   if($id==$queryfromdb1)
   {
-     if($message == "สวัสดี"){
-     $arrayPostData['to'] = $id;
-     $arrayPostData['messages'][0]['type'] = "text";
-     $arrayPostData['messages'][0]['label'] = "สวัสดีจ้าาา".$name1;
-     $arrayPostData['messages'][1]['type'] = "text";
-     $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
-     $arrayPostData['messages'][2]['type'] = "sticker";
-     $arrayPostData['messages'][2]['packageId'] = "2";
-     $arrayPostData['messages'][2]['stickerId'] = "34";
-     /*$arrayPostData['messages'][3] = new TemplateMessageBuilder('Confirm Template',
-                        new ConfirmTemplateBuilder(
-                                'Confirm template builder',
-                                array(
-                                    new MessageTemplateActionBuilder(
-                                        'Yes',
-                                        'Text Yes'
-                                    ),
-                                    new MessageTemplateActionBuilder(
-                                        'No',
-                                        'Text NO'
-                                    )
-                                )
-                        )
-                    );*/
+    if($message == "สวัสดี"){
+    $arrayPostData['to'] = $id;
+    $arrayPostData['messages'][0]['type'] = "text";
+    $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
+    $arrayPostData['messages'][1]['type'] = "text";
+    $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
+    $arrayPostData['messages'][2]['type'] = "sticker";
+    $arrayPostData['messages'][2]['packageId'] = "2";
+    $arrayPostData['messages'][2]['stickerId'] = "34";
+    $arrayPostData['messages'][3]['type'] = "text";
+    $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
