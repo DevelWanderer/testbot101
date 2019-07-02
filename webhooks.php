@@ -70,7 +70,7 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][2]['type'] = "sticker";
      $arrayPostData['messages'][2]['packageId'] = "2";
      $arrayPostData['messages'][2]['stickerId'] = "34";
-     $arrayPostData['messages'][3] = new TemplateMessageBuilder('Confirm Template',
+     /*$arrayPostData['messages'][3] = new TemplateMessageBuilder('Confirm Template',
                         new ConfirmTemplateBuilder(
                                 'Confirm template builder',
                                 array(
@@ -84,7 +84,7 @@ $content = file_get_contents('php://input');
                                     )
                                 )
                         )
-                    );
+                    );*/
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
