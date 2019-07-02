@@ -33,8 +33,8 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][0]['template'][0]['type'] = "confirm";
      $arrayPostData['messages'][0]['template'][0]['text'] = "Are you sure?";
      $arrayPostData['messages'][0]['template'][0]['actions'][0]['type'] = "message";
-     $arrayPostData['messages'][0]['template'][0]['actions'][0]['label'] = "Yes";
-     $arrayPostData['messages'][0]['template'][0]['actions'][0]['text'] = "yes";
+     $arrayPostData['messages'][0]['template'][0]['actions'][1]['label'] = "Yes";
+     $arrayPostData['messages'][0]['template'][0]['actions'][3]['text'] = "yes";
 
      /*$arrayPostData['messages'][3] = new TemplateMessageBuilder('Confirm Template',
                         new ConfirmTemplateBuilder(
