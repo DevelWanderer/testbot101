@@ -63,28 +63,32 @@ $content = file_get_contents('php://input');
   {
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
-     $arrayPostData['messages'][0]['type'] = "text";
-     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
-     $arrayPostData['messages'][1]['type'] = "text";
-     $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
-     $arrayPostData['messages'][2]['type'] = "sticker";
-     $arrayPostData['messages'][2]['packageId'] = "2";
-     $arrayPostData['messages'][2]['stickerId'] = "34";
-     /*$arrayPostData['messages'][3] = new TemplateMessageBuilder('Confirm Template',
-                        new ConfirmTemplateBuilder(
-                                'Confirm template builder',
-                                array(
-                                    new MessageTemplateActionBuilder(
-                                        'Yes',
-                                        'Text Yes'
-                                    ),
-                                    new MessageTemplateActionBuilder(
-                                        'No',
-                                        'Text NO'
-                                    )
-                                )
-                        )
-                    );*/
+     $arrayPostData['messages']: [
+         {
+           type: "template",
+           altText: "This is a buttons template",
+           template: {
+             type: "confirm",
+             text: "Are you sure?",
+             actions: [
+               {
+                 type: "message",
+                 label: "Yes",
+                 text: "yes"
+               },
+               {
+                 type: "message",
+                 label: "No",
+                 text: "no"
+               }
+             ]
+           }
+         }
+       ]
+     }
+
+
+
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
