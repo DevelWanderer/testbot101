@@ -32,7 +32,7 @@ $content = file_get_contents('php://input');
         'type' => 'text',
         'text' => 'fghfghfgh'
       ];
-     $arrayPostData['messages'=>$messages];
+     $arrayPostData['messages'];
 
      /*$arrayPostData['messages'][3] = new TemplateMessageBuilder('Confirm Template',
                         new ConfirmTemplateBuilder(
