@@ -28,14 +28,14 @@ $content = file_get_contents('php://input');
   {
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
-     $arrayPostData['messages'][0]{  
+     $arrayPostData['messages'][
    "type":"uri",
    "label":"View details",
    "uri":"http://example.com/page/222",
-   "altUri": {
+   "altUri": [
       "desktop" : "http://example.com/pc/page/222"
-   }
-}
+   ]
+]
      /*$arrayPostData['messages'][3] = new TemplateMessageBuilder('Confirm Template',
                         new ConfirmTemplateBuilder(
                                 'Confirm template builder',
