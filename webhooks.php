@@ -28,20 +28,13 @@ $content = file_get_contents('php://input');
   {
      if($message == "สวัสดี"){
      $arrayPostData['to'] = $id;
-     $arrayPostData['messages']: {
-       type: "confirm",
-       text: "Are you sure?",
-       actions: [
-         {
-           type: "message",
-           label: "Yes",
-           text: "yes"
-         },
-         {
-           type: "message",
-           label: "No",
-           text: "no"
-         }
+     $arrayPostData['messages'][0]['type'] = "confirm";
+     $arrayPostData['messages'][0]['text'] = "Are you sure".$name1;
+     $arrayPostData['messages'][1]['type'] = "text";
+     $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
+     $arrayPostData['messages'][2]['type'] = "sticker";
+     $arrayPostData['messages'][2]['packageId'] = "2";
+     $arrayPostData['messages'][2]['stickerId'] = "34";
      /*$arrayPostData['messages'][3] = new TemplateMessageBuilder('Confirm Template',
                         new ConfirmTemplateBuilder(
                                 'Confirm template builder',
