@@ -29,7 +29,7 @@ $content = file_get_contents('php://input');
   if($id==$queryfromdb1)
   {
     if($message == "สวัสดี"){
-    $arrayPostData['to'] = $id;
+    //$arrayPostData['to'] = $id;
     $arrayPostData  = array(
       "type" => "button",
       "action"=> array(
