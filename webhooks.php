@@ -31,14 +31,14 @@ $content = file_get_contents('php://input');
     if($message == "สว"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".'<br>'.$name1;
-      $arrayPostData['messages'][1]['type'] = "text";
-      $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
-      $arrayPostData['messages'][2]['type'] = "sticker";
-      $arrayPostData['messages'][2]['packageId'] = "2";
-      $arrayPostData['messages'][2]['stickerId'] = "34";
-      $arrayPostData['messages'][3]['type'] = "text";
-      $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
+      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".''.$name1;
+      //$arrayPostData['messages'][1]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "เราชื่อดอร่านะ";
+      $arrayPostData['messages'][1]['type'] = "sticker";
+      $arrayPostData['messages'][1]['packageId'] = "2";
+      $arrayPostData['messages'][1]['stickerId'] = "34";
+      $arrayPostData['messages'][2]['type'] = "text";
+      $arrayPostData['messages'][2]['text'] = "https://erp.wealththai.net/quickregister??".$id;
   pushMsg($arrayHeader,$arrayPostData);
   }
   }
