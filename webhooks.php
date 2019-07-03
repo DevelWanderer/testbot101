@@ -37,14 +37,14 @@ $content = file_get_contents('php://input');
     $arrayPostData['messages'][2]['stickerId'] = "34";
     $arrayPostData['messages'][3]['type'] = "template";
     $arrayPostData['messages'][3]['altText'] = "this is a confirm template";
-    $arrayPostData['messages'][3]['template'][0]['type'] = "confirm";
-    $arrayPostData['messages'][3]['template'][0]['text'] = "Are you sure?";
-    $arrayPostData['messages'][3]['template'][0]['actions'][0]['type'] = "message";
-    $arrayPostData['messages'][3]['template'][0]['actions'][0]['label'] = "Yes";
-    $arrayPostData['messages'][3]['template'][0]['actions'][0]['text'] = "yes";
-    $arrayPostData['messages'][3]['template'][0]['actions'][1]['type'] = "message";
-    $arrayPostData['messages'][3]['template'][0]['actions'][1]['lebel'] = "No";
-    $arrayPostData['messages'][3]['template'][0]['actions'][1]['type'] = "no";
+    $arrayPostData['messages'][3]['template'][1]['type'] = "confirm";
+    $arrayPostData['messages'][3]['template'][1]['text'] = "Are you sure?";
+    $arrayPostData['messages'][3]['template'][2]['actions'][1]['type'] = "message";
+    $arrayPostData['messages'][3]['template'][2]['actions'][1]['label'] = "Yes";
+    $arrayPostData['messages'][3]['template'][2]['actions'][1]['text'] = "yes";
+    $arrayPostData['messages'][3]['template'][3]['actions'][2]['type'] = "message";
+    $arrayPostData['messages'][3]['template'][3]['actions'][2]['lebel'] = "No";
+    $arrayPostData['messages'][3]['template'][3]['actions'][2]['type'] = "no";
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
