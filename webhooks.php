@@ -35,8 +35,16 @@ $content = file_get_contents('php://input');
     $arrayPostData['messages'][2]['type'] = "sticker";
     $arrayPostData['messages'][2]['packageId'] = "2";
     $arrayPostData['messages'][2]['stickerId'] = "34";
-    $arrayPostData['messages'][3]['type'] = "text";
-    $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
+    $arrayPostData['messages'][3]['type'] = "template";
+    $arrayPostData['messages'][3]['altText'] = "this is a confirm template";
+    $arrayPostData['messages'][3]['template'][0]['type'] = "confirm";
+    $arrayPostData['messages'][3]['template'][0]['text'] = "Are you sure?";
+    $arrayPostData['messages'][3]['template'][0]['actions'][0]['type'] = "message";
+    $arrayPostData['messages'][3]['template'][0]['actions'][0]['label'] = "Yes";
+    $arrayPostData['messages'][3]['template'][0]['actions'][0]['text'] = "yes";
+    $arrayPostData['messages'][3]['template'][0]['actions'][1]['type'] = "message";
+    $arrayPostData['messages'][3]['template'][0]['actions'][1]['lebel'] = "No";
+    $arrayPostData['messages'][3]['template'][0]['actions'][1]['type'] = "no";
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
