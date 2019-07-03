@@ -30,24 +30,19 @@ $content = file_get_contents('php://input');
   {
     if($message == "สวัสดี"){
     $arrayPostData['to'] = $id;
-    $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
-    $arrayPostData['messages'][1]['type'] = "text";
-    $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
-    $arrayPostData['messages'][2]['type'] = "sticker";
-    $arrayPostData['messages'][2]['packageId'] = "2";
-    $arrayPostData['messages'][2]['stickerId'] = "34";
-    /*$arrayConfirm['messages'][1]['type'] = "template";
-    $arrayConfirm['messages'][1]['altText'] = "this is a confirm template";
-    $arrayConfirm['messages'][1]['template'][1]['type'] = "confirm";
-    $arrayConfirm['messages'][1]['template'][1]['text'] = "Are you sure?";
-    $arrayConfirm['messages'][1]['template'][2]['actions'][0]['type'] = "message";
-    $arrayConfirm['messages'][1]['template'][2]['actions'][0]['label'] = "Yes";
-    $arrayConfirm['messages'][1]['template'][2]['actions'][0]['text'] = "yes";
-    $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "message";
-    $arrayConfirm['messages'][1]['template'][3]['actions'][1]['lebel'] = "No";
-    $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "no";*/
-  pushMsg($arrayHeader,$arrayPostData/*$arrayConfirm*/);
+    $arrayPostData['messages'] = array(
+      "type": "button",
+      "action": array(
+        "type": "uri",
+        "label": "Tap me",
+        "uri": "https://example.com"
+      ),
+      array(
+      "style": "primary",
+      "color": "#0000ff"
+      )
+    )
+  pushMsg($arrayHeader,$arrayPostData);
   }
   }
   elseif($id==$queryfromdb2)
