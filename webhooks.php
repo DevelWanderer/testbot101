@@ -24,7 +24,7 @@ $content = file_get_contents('php://input');
   $name1 = 'เอิร์ท';
   $name2 = 'ต๊อบ';
   $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
-  $arrayConfirm = array();
+  /*$arrayConfirm = array();*/
 
   if($id==$queryfromdb1)
   {
