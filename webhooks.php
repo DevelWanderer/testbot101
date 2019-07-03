@@ -42,7 +42,7 @@ $content = file_get_contents('php://input');
     $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "message";
     $arrayConfirm['messages'][1]['template'][3]['actions'][1]['lebel'] = "No";
     $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "no";*/
-  pushMsg($arrayHeader,$arrayPostData,/*$arrayConfirm*/);
+  pushMsg($arrayHeader,$arrayPostData/*$arrayConfirm*/);
   }
   }
   elseif($id==$queryfromdb2)
