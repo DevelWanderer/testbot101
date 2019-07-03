@@ -42,7 +42,7 @@ $content = file_get_contents('php://input');
     $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "message";
     $arrayConfirm['messages'][1]['template'][3]['actions'][1]['lebel'] = "No";
     $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "no";
-     pushMsg($arrayHeader,$arrayPostData);
+     pushMsg($arrayHeader,$arrayPostData,$arrayConfirm);
   }
   }
   elseif($id==$queryfromdb2)
@@ -61,7 +61,7 @@ $content = file_get_contents('php://input');
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
-  function pushMsg($arrayHeader,$arrayPostData){
+  function pushMsg($arrayHeader,$arrayPostData,$arrayConfirm){
      $strUrl = "https://api.line.me/v2/bot/message/push";
      $ch = curl_init();
      curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -69,6 +69,7 @@ $content = file_get_contents('php://input');
      curl_setopt($ch, CURLOPT_POST, true);
      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayConfirm));
      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
      $result = curl_exec($ch);
