@@ -29,7 +29,7 @@ $content = file_get_contents('php://input');
   if($id==$queryfromdb1)
   {
     if($message == "สวัสดี"){
-    //$arrayPostData['to'] = $id;
+    $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name2;
     $arrayPostData['messages'][1]['type'] = "text";
@@ -39,7 +39,7 @@ $content = file_get_contents('php://input');
     $arrayPostData['messages'][2]['stickerId'] = "34";
     $arrayPostData['messages'][3]['type'] = "text";
     $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
-    $arrayPostData2= array(
+    $arrayPostData['messages'][4]['type']= array(
       "type" => "button",
       "action"=> array(
         "type"=> "uri",
