@@ -31,17 +31,17 @@ $content = file_get_contents('php://input');
     if($message == "สวัสดี"){
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0] = array(
-      "type": "button",
-      "action": array(
-        "type": "uri",
-        "label": "Tap me",
-        "uri": "https://example.com"
+      "type" => "button",
+      "action"=> array(
+        "type"=> "uri",
+        "label"=> "Tap me",
+        "uri"=> "https://example.com"
       ),
       array(
-      "style": "primary",
-      "color": "#0000ff"
+      "style"=>"primary",
+      "color"=> "#FF0099"
       )
-    )
+    );
   pushMsg($arrayHeader,$arrayPostData);
   }
   }
