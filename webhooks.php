@@ -43,9 +43,9 @@ $content = file_get_contents('php://input');
     $arrayPostData['messages'][4]['action'][0]['type'] = "uri";
     $arrayPostData['messages'][4]['action'][0]['label'] = "Tap me";
     $arrayPostData['messages'][4]['action'][0]['uri'] = "https://example.com";
-    $arrayPostData['messages'][4]['action'][1]['style'] = "primary";
-    $arrayPostData['messages'][4]['action'][1]['color'] = "#FF0099";
-      
+    $arrayPostData['messages'][4]['action'][0]['style'] = "primary";
+    $arrayPostData['messages'][4]['action'][0]['color'] = "#FF0099";
+
   pushMsg($arrayHeader,$arrayPostData);
   }
   }
