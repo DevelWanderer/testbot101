@@ -44,7 +44,7 @@ $content = file_get_contents('php://input');
     if($message == "สวัสดี"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$name1."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
+      $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$name2."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
