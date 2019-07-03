@@ -28,10 +28,15 @@ $content = file_get_contents('php://input');
 
   if($id==$queryfromdb1)
   {
-    if($message){
+    if($message == "สวัสดี"){
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
+    $arrayPostData['messages'][1]['type'] = "text";
+    $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
+    $arrayPostData['messages'][2]['type'] = "sticker";
+    $arrayPostData['messages'][2]['packageId'] = "2";
+    $arrayPostData['messages'][2]['stickerId'] = "34";
     /*$arrayConfirm['messages'][1]['type'] = "template";
     $arrayConfirm['messages'][1]['altText'] = "this is a confirm template";
     $arrayConfirm['messages'][1]['template'][1]['type'] = "confirm";
