@@ -66,7 +66,7 @@ $content = file_get_contents('php://input');
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
-  function pushMsg($arrayHeader,$arrayPostData,$arrayConfirm){
+function pushMsg($arrayHeader,$arrayPostData/*,$arrayConfirm*/){
      $strUrl = "https://api.line.me/v2/bot/message/push";
      $ch = curl_init();
      curl_setopt($ch, CURLOPT_URL,$strUrl);
