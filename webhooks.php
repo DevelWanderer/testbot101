@@ -30,7 +30,7 @@ $content = file_get_contents('php://input');
   {
     if($message == "สวัสดี"){
     $arrayPostData['to'] = $id;
-    $arrayPostData['messages'] = array(
+    $arrayPostData  = array(
       "type" => "button",
       "action"=> array(
         "type"=> "uri",
