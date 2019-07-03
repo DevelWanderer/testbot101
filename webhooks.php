@@ -43,16 +43,16 @@ $content = file_get_contents('php://input');
       "type"=> "template",
       "altText" => "this is a buttons template",
       "template"=> array(
-        "type": "buttons",
-        "actions": array(
+        "type"=> "buttons",
+        "actions"=> array(
 
-            "type": "uri",
-            "label": "Action 1",
-            "uri": "https://example.com"
+            "type"=> "uri",
+            "label"=> "Action 1",
+            "uri"=> "https://example.com"
           )
         ),
-        "title": "Title",
-        "text": "Text"
+        "title"=> "Title",
+        "text"=> "Text"
       )
   pushMsg($arrayHeader,$arrayPostData);
   }
