@@ -32,7 +32,7 @@ $content = file_get_contents('php://input');
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
-    $arrayConfirm['messages'][1]['type'] = "template";
+    /*$arrayConfirm['messages'][1]['type'] = "template";
     $arrayConfirm['messages'][1]['altText'] = "this is a confirm template";
     $arrayConfirm['messages'][1]['template'][1]['type'] = "confirm";
     $arrayConfirm['messages'][1]['template'][1]['text'] = "Are you sure?";
@@ -41,8 +41,8 @@ $content = file_get_contents('php://input');
     $arrayConfirm['messages'][1]['template'][2]['actions'][0]['text'] = "yes";
     $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "message";
     $arrayConfirm['messages'][1]['template'][3]['actions'][1]['lebel'] = "No";
-    $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "no";
-     pushMsg($arrayHeader,$arrayPostData,$arrayConfirm);
+    $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "no";*/
+  pushMsg($arrayHeader,$arrayPostData,/*$arrayConfirm*/);
   }
   }
   elseif($id==$queryfromdb2)
@@ -68,7 +68,7 @@ $content = file_get_contents('php://input');
      curl_setopt($ch, CURLOPT_HEADER, false);
      curl_setopt($ch, CURLOPT_POST, true);
      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData,$arrayConfirm));
+     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData/*,$arrayConfirm*/));
      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
      $result = curl_exec($ch);
