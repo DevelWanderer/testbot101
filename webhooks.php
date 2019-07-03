@@ -24,6 +24,7 @@ $content = file_get_contents('php://input');
   $name1 = 'เอิร์ท';
   $name2 = 'ต๊อบ';
   $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
+  $arrayConfirm = array();
 
   if($id==$queryfromdb1)
   {
@@ -31,11 +32,16 @@ $content = file_get_contents('php://input');
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
-    $arrayPostData['messages'][1]['type'] = "text";
-    $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
-    $arrayPostData['messages'][2]['type'] = "sticker";
-    $arrayPostData['messages'][2]['packageId'] = "2";
-    $arrayPostData['messages'][2]['stickerId'] = "34";
+    $arrayConfirm['messages'][1]['type'] = "template";
+    $arrayConfirm['messages'][1]['altText'] = "this is a confirm template";
+    $arrayConfirm['messages'][1]['template'][1]['type'] = "confirm";
+    $arrayConfirm['messages'][1]['template'][1]['text'] = "Are you sure?";
+    $arrayConfirm['messages'][1]['template'][2]['actions'][0]['type'] = "message";
+    $arrayConfirm['messages'][1]['template'][2]['actions'][0]['label'] = "Yes";
+    $arrayConfirm['messages'][1]['template'][2]['actions'][0]['text'] = "yes";
+    $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "message";
+    $arrayConfirm['messages'][1]['template'][3]['actions'][1]['lebel'] = "No";
+    $arrayConfirm['messages'][1]['template'][3]['actions'][1]['type'] = "no";
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
@@ -55,17 +61,7 @@ $content = file_get_contents('php://input');
      pushMsg($arrayHeader,$arrayPostData);
   }
   }
-    $arrayPostData2['messages'][3]['type'] = "template";
-    $arrayPostData2['messages'][3]['altText'] = "this is a confirm template";
-    $arrayPostData2['messages'][3]['template'][1]['type'] = "confirm";
-    $arrayPostData2['messages'][3]['template'][1]['text'] = "Are you sure?";
-    $arrayPostData2['messages'][3]['template'][2]['actions'][1]['type'] = "message";
-    $arrayPostData2['messages'][3]['template'][2]['actions'][1]['label'] = "Yes";
-    $arrayPostData2['messages'][3]['template'][2]['actions'][1]['text'] = "yes";
-    $arrayPostData2['messages'][3]['template'][3]['actions'][2]['type'] = "message";
-    $arrayPostData2['messages'][3]['template'][3]['actions'][2]['lebel'] = "No";
-    $arrayPostData2['messages'][3]['template'][3]['actions'][2]['type'] = "no";
-  function pushMsg($arrayHeader,$arrayPostData,$arrayPostData2){
+  function pushMsg($arrayHeader,$arrayPostData){
      $strUrl = "https://api.line.me/v2/bot/message/push";
      $ch = curl_init();
      curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -73,7 +69,6 @@ $content = file_get_contents('php://input');
      curl_setopt($ch, CURLOPT_POST, true);
      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData2));
      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
      $result = curl_exec($ch);
