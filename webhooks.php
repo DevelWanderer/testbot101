@@ -39,13 +39,14 @@ $content = file_get_contents('php://input');
     $arrayPostData['messages'][2]['stickerId'] = "34";
     $arrayPostData['messages'][3]['type'] = "text";
     $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
-    $arrayPostData['messages'][4]['type'] = "button";
-    $arrayPostData['messages'][4]['action'][0]['type'] = "uri";
-    $arrayPostData['messages'][4]['action'][0]['label'] = "Tap me";
-    $arrayPostData['messages'][4]['action'][0]['uri'] = "https://example.com";
-    $arrayPostData['messages'][4]['action'][0]['style'] = "primary";
-    $arrayPostData['messages'][4]['action'][0]['color'] = "#FF0099";
-
+    $arrayPostData['messages'][4]['type'] = "template";
+    $arrayPostData['messages'][4]['altText'] = "this is a buttons template";
+    $arrayPostData['messages'][4]['template'][0]['type'] = "buttons";
+    $arrayPostData['messages'][4]['template'][0]['actions'][0]['type'] = "uri";
+    $arrayPostData['messages'][4]['template'][0]['actions'][0]['label'] = "Tap Tap";
+    $arrayPostData['messages'][4]['template'][0]['actions'][0]['uri'] = "https://example.com";
+    $arrayPostData['messages'][4]['template'][0]['title'] = "Tap kiki";
+    $arrayPostData['messages'][4]['template'][0]['text'] ="Tap EiEi";
   pushMsg($arrayHeader,$arrayPostData);
   }
   }
