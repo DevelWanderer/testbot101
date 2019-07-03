@@ -28,7 +28,7 @@ $content = file_get_contents('php://input');
 
   if($id==$queryfromdb1)
   {
-    if($message == "สวัสดี"){
+    if($message){
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
