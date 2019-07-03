@@ -29,24 +29,16 @@ $content = file_get_contents('php://input');
   if($id==$queryfromdb1)
   {
     if($message == "สว"){
-    $arrayPostData['to'] = $id;
-    $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
-    $arrayPostData['messages'][1]['type'] = "text";
-    $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
-    $arrayPostData['messages'][2]['type'] = "sticker";
-    $arrayPostData['messages'][2]['packageId'] = "2";
-    $arrayPostData['messages'][2]['stickerId'] = "34";
-    $arrayPostData['messages'][3]['type'] = "text";
-    $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
-    $arrayPostData['messages'][4]['type'] = "template";
-    $arrayPostData['messages'][4]['altText'] = "this is a buttons template";
-    $arrayPostData['messages'][4]['template'][0]['type'] = "buttons";
-    $arrayPostData['messages'][4]['template'][1]['actions'][0]['type'] = "uri";
-    $arrayPostData['messages'][4]['template'][1]['actions'][1]['label'] = "Tap Tap";
-    $arrayPostData['messages'][4]['template'][1]['actions'][2]['uri'] = "https://example.com";
-    $arrayPostData['messages'][4]['template'][2]['title'] = "Tap kiki";
-    $arrayPostData['messages'][4]['template'][3]['text'] ="Tap EiEi";
+      $arrayPostData['to'] = $id;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา"."<br>".$name1;
+      $arrayPostData['messages'][1]['type'] = "text";
+      $arrayPostData['messages'][1]['text'] = "เราชื่อดอร่านะ";
+      $arrayPostData['messages'][2]['type'] = "sticker";
+      $arrayPostData['messages'][2]['packageId'] = "2";
+      $arrayPostData['messages'][2]['stickerId'] = "34";
+      $arrayPostData['messages'][3]['type'] = "text";
+      $arrayPostData['messages'][3]['text'] = "https://erp.wealththai.net/quickregister??".$id;
   pushMsg($arrayHeader,$arrayPostData);
   }
   }
