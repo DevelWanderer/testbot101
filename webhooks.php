@@ -31,8 +31,8 @@ $content = file_get_contents('php://input');
     if($message == "สว"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".''.$name1;
-      //$arrayPostData['messages'][1]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา"."\n".$name1;
+      $arrayPostData['messages'][1]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "เราชื่อดอร่านะ";
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "2";
