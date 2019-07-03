@@ -24,7 +24,7 @@ $content = file_get_contents('php://input');
   $name1 = 'เอิร์ท';
   $name2 = 'ต๊อบ';
   $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
-  /*$arrayConfirm = array();*/
+  
 
   if($id==$queryfromdb1)
   {
@@ -45,8 +45,8 @@ $content = file_get_contents('php://input');
     $arrayPostData['messages'][4]['template'][0]['actions'][0]['type'] = "uri";
     $arrayPostData['messages'][4]['template'][0]['actions'][0]['label'] = "Tap Tap";
     $arrayPostData['messages'][4]['template'][0]['actions'][0]['uri'] = "https://example.com";
-    $arrayPostData['messages'][4]['template'][1]['title'] = "Tap kiki";
-    $arrayPostData['messages'][4]['template'][2]['text'] ="Tap EiEi";
+    $arrayPostData['messages'][4]['template'][0]['title'] = "Tap kiki";
+    $arrayPostData['messages'][4]['template'][0]['text'] ="Tap EiEi";
   pushMsg($arrayHeader,$arrayPostData);
   }
   }
@@ -73,7 +73,7 @@ function pushMsg($arrayHeader,$arrayPostData/*,$arrayConfirm*/){
      curl_setopt($ch, CURLOPT_HEADER, false);
      curl_setopt($ch, CURLOPT_POST, true);
      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData/*,$arrayConfirm*/));
+     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
      $result = curl_exec($ch);
