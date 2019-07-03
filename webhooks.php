@@ -28,7 +28,7 @@ $content = file_get_contents('php://input');
 
   if($id==$queryfromdb1)
   {
-    if($message == "สวัสดี"){
+    if($message == "สว"){
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$name1;
@@ -42,11 +42,11 @@ $content = file_get_contents('php://input');
     $arrayPostData['messages'][4]['type'] = "template";
     $arrayPostData['messages'][4]['altText'] = "this is a buttons template";
     $arrayPostData['messages'][4]['template'][0]['type'] = "buttons";
-    $arrayPostData['messages'][4]['template'][0]['actions'][0]['type'] = "uri";
-    $arrayPostData['messages'][4]['template'][0]['actions'][1]['label'] = "Tap Tap";
-    $arrayPostData['messages'][4]['template'][0]['actions'][2]['uri'] = "https://example.com";
-    $arrayPostData['messages'][4]['template'][1]['title'] = "Tap kiki";
-    $arrayPostData['messages'][4]['template'][1]['text'] ="Tap EiEi";
+    $arrayPostData['messages'][4]['template'][1]['actions'][0]['type'] = "uri";
+    $arrayPostData['messages'][4]['template'][1]['actions'][1]['label'] = "Tap Tap";
+    $arrayPostData['messages'][4]['template'][1]['actions'][2]['uri'] = "https://example.com";
+    $arrayPostData['messages'][4]['template'][2]['title'] = "Tap kiki";
+    $arrayPostData['messages'][4]['template'][3]['text'] ="Tap EiEi";
   pushMsg($arrayHeader,$arrayPostData);
   }
   }
