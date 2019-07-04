@@ -1,7 +1,7 @@
 <?php // callback.php
 require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-$access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
+$access_token ='YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
 
 
 
@@ -34,24 +34,18 @@ $content = file_get_contents('php://input');
     //!empty == "!=" (if($_POST['username'] != NULL))
     if(!empty($_POST['username']) && !empty($_POST['password']))
 {
-    if($_POST['username'] == 'guest' && $_POST['password'] == 'guest')
-    {
-      $arrayPostData['to'] = $queryfromdb1;
+
+      $arrayPostData['to'] = $_POST['reciverlineuserid'];
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "ไอดี ".$_POST['username']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
+      $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$_POST['recievername']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$_POST['sendername']."\n"."ข้อความ ".$_POST['message'];
       pushMsg($arrayHeader,$arrayPostData);
 
-      $arrayPostData['to'] = $queryfromdb2;
+      /*$arrayPostData['to'] = $queryfromdb2;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "ไอดี ".$_POST['username']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
-      pushMsg($arrayHeader,$arrayPostData);
+      pushMsg($arrayHeader,$arrayPostData);*/
         return;
-    }
-    else
-    {
-        echo 'Login Error!!!!';
-        return;
-    }
+
 }
 else
 {
