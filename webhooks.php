@@ -30,12 +30,11 @@ $content = file_get_contents('php://input');
   $recievername = 'ต๊อบ';
   $messagesend = 'ซิพกับเดล มีสองพี่น้อง ขายของในคลอง ในกองเรามีแต่ถั่วดีๆ เพิ่งเด็ดสดๆ มากินให้หมด';
 
-  if($message == "สว"){
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$name1."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
   pushMsg($arrayHeader,$arrayPostData);
-  }
+
     //!empty == "!=" (if($_POST['username'] != NULL))
     if(!empty($_POST['recievername']) && !empty($_POST['sendername']))
 {
