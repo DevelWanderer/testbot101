@@ -30,13 +30,14 @@ $content = file_get_contents('php://input');
   $recievername = 'ต๊อบ';
   $messagesend = 'ซิพกับเดล มีสองพี่น้อง ขายของในคลอง ในกองเรามีแต่ถั่วดีๆ เพิ่งเด็ดสดๆ มากินให้หมด';
 
-  if(empty(['messages'])){
+
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สำหรับคนที่ยังไม่ได้สมัครเป็นสมาชิก Wealththai กดลิ้งนี้"."https://erp.wealththai.net/quickregister?lusid?".$id."?lusid?"."\n".
-    "สำหรับคนที่เป็นสมาชิก Wealththai แล้วกดลิ้งนี้"."https://erp.wealththai.net/quickregister?lusid?".$id."?lusid?"."\n";
+    "สำหรับคนที่เป็นสมาชิก Wealththai แล้วกดลิ้งนี้"."
+line://app/1595423850-4b5xx9wP".$id."?lusid?"."\n";
   pushMsg($arrayHeader,$arrayPostData);
-}
+
     //!empty == "!=" (if($_POST['username'] != NULL))
     if(!empty($_POST['recievername']) && !empty($_POST['sendername']))
 {
