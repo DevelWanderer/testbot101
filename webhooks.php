@@ -45,7 +45,7 @@ line://app/1595423850-4b5xx9wP";
 pushMsg($arrayHeader,$arrayPostData);
 }
 
-if(!empty($_POST['passwordconnecttoline'])))
+if(!empty($_POST['passwordconnecttoline']))
 {
   if($_POST['passwordconnecttoline'] == 'Connect1109Server')
   {
