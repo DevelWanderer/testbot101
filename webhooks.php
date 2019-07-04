@@ -32,7 +32,7 @@ $content = file_get_contents('php://input');
 
 
     //!empty == "!=" (if($_POST['username'] != NULL))
-    if(!empty($_POST['username']) && !empty($_POST['password']))
+    if(!empty($_POST['recievername']) && !empty($_POST['sendername']))
 {
 
       $arrayPostData['to'] = $_POST['reciverlineuserid'];
