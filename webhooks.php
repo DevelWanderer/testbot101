@@ -20,10 +20,10 @@ $content = file_get_contents('php://input');
 
   //รับ id ของผู้ใช้
   $id = $arrayJson['events'][0]['source']['userId'];
-  $queryfromdb1 = 'U247e07dbd7112244b44c934915d5aceb';
+  $queryfromdb1 = 'Ue019d5b78036772cd8be0b26646376f2';
   $name1 = 'เอิร์ท';
   $name2 = 'ต๊อบ';
-  $queryfromdb2 = 'Udad3f0cf4081ddcc795152f3acbe244f';
+  $queryfromdb2 = 'Uaf703e9707ecc91b4ebb7f6bc758ee1a';
   $senderId = '104';
   $sendername = 'Kontrakarn';
   $recieverLineUserId = 'Lineuserid';
