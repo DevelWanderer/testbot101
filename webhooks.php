@@ -55,7 +55,7 @@ else
 }
 
 
-  elseif($id==$queryfromdb2)
+/*  elseif($id==$queryfromdb2)
   {
     if($message == "สวัสดี"){
       $arrayPostData['to'] = $id;
@@ -63,7 +63,7 @@ else
       $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$name2."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
      pushMsg($arrayHeader,$arrayPostData);
   }
-  }
+}*/
 function pushMsg($arrayHeader,$arrayPostData/*,$arrayConfirm*/){
      $strUrl = "https://api.line.me/v2/bot/message/push";
      $ch = curl_init();
