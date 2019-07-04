@@ -39,7 +39,7 @@ $content = file_get_contents('php://input');
       $arrayPostData['to'] = $queryfromdb1;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "ไอดี ".$_POST['username']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
-      pushMsg($arrayHeader,$arrayPostData);
+      
 
       $arrayPostData['to'] = $queryfromdb2;
       $arrayPostData['messages'][0]['type'] = "text";
