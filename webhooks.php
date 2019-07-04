@@ -31,12 +31,12 @@ $content = file_get_contents('php://input');
   $messagesend = 'ซิพกับเดล มีสองพี่น้อง ขายของในคลอง ในกองเรามีแต่ถั่วดีๆ เพิ่งเด็ดสดๆ มากินให้หมด';
 
 
-    $arrayPostData['to'] = $id;
+/*    $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สำหรับคนที่ยังไม่ได้สมัครเป็นสมาชิก Wealththai กดลิ้งนี้"."\n"."https://erp.wealththai.net/quickregister?lusid?".$id."?lusid?"."\n".
     "สำหรับคนที่เป็นสมาชิก Wealththai แล้วกดลิ้งนี้"."\n"."https://erp.wealththai.net/quickregister?lusid?".$id."?lusid?"."\n"."
 line://app/1595423850-4b5xx9wP";
-  pushMsg($arrayHeader,$arrayPostData);
+  pushMsg($arrayHeader,$arrayPostData);*/
 
   if($message == "Connect1109Server"){
     $arrayPostData['to'] = $id;
