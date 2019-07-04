@@ -45,6 +45,17 @@ line://app/1595423850-4b5xx9wP";
 pushMsg($arrayHeader,$arrayPostData);
 }
 
+if(!empty($_POST['passwordconnecttoline'])))
+{
+  if($_POST['passwordconnecttoline'] == 'Connect1109Server')
+  {
+    $arrayPostData['to'] = $id;
+    $arrayPostData['messages'][0]['type'] = "text";
+    $arrayPostData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
+    pushMsg($arrayHeader,$arrayPostData);
+  }
+  return;
+}
     //!empty == "!=" (if($_POST['username'] != NULL))
     if(!empty($_POST['recievername']) && !empty($_POST['sendername']))
 {
