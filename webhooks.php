@@ -29,46 +29,32 @@ $content = file_get_contents('php://input');
   $recieverLineUserId = 'Lineuserid';
   $recievername = 'ต๊อบ';
   $messagesend = 'ซิพกับเดล มีสองพี่น้อง ขายของในคลอง ในกองเรามีแต่ถั่วดีๆ เพิ่งเด็ดสดๆ มากินให้หมด';
-  function getDataFromUrl($url) {
-   $ch = curl_init();
-   // Set URL and header options
-   curl_setopt($ch, CURLOPT_URL, $url);
-   curl_setopt($ch, CURLOPT_HEADER, 0);
 
-   // Start to capture the output
-   ob_start();
-   // Excecuting the curl call
-   curl_exec($ch);
-   // Get the srtout content and clean the buffer
-   $sendmessage = ob_get_clean();
 
-   // Close the Curl resource
-   curl_close($ch);
-  return $sendmessage;
 
-  if($id==$queryfromdb1)
-  {
-    if($message == "สว"){
-      $arrayPostData['to'] = $id;
+    if(!empty($_POST['username']) && !empty($_POST['password']))
+{
+    if($_POST['username'] == 'guest' && $_POST['password'] == 'guest')
+    {
+      $arrayPostData['to'] = $queryfromdb1;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$name1."\n"."มีอะไรให้รับใช้คะ?";}
-    elseif ($message == 'ส่งข้อความ') {
-      $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "พิมพ์มาได้เลยค่ะ";
+      $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$name1."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
+      pushMsg($arrayHeader,$arrayPostData);
+
+        return;
     }
-    elseif ($message) {
-      $arrayPostData['to'] = $id;
-      $sendmessage = $message;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "ทวนนะคะ"."\n".$sendmessage;
-
+    else
+    {
+        echo 'Login Error!!!!';
+        return;
     }
+}
+else
+{
+    return;
+}
 
-  }ว
-  pushMsg($arrayHeader,$arrayPostData);
-  }
-  }
+
   elseif($id==$queryfromdb2)
   {
     if($message == "สวัสดี"){
