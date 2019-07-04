@@ -57,17 +57,6 @@ else
 {
     return;
 }
-
-
-/*  elseif($id==$queryfromdb2)
-  {
-    if($message == "สวัสดี"){
-      $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$name2."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
-     pushMsg($arrayHeader,$arrayPostData);
-  }
-}*/
 function pushMsg($arrayHeader,$arrayPostData){
      $strUrl = "https://api.line.me/v2/bot/message/push";
      $ch = curl_init();
@@ -80,8 +69,6 @@ function pushMsg($arrayHeader,$arrayPostData){
      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
      $result = curl_exec($ch);
      curl_close ($ch);
-
-
   }
   exit;
 ?>
