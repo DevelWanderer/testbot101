@@ -30,7 +30,12 @@ $content = file_get_contents('php://input');
   $recievername = 'ต๊อบ';
   $messagesend = 'ซิพกับเดล มีสองพี่น้อง ขายของในคลอง ในกองเรามีแต่ถั่วดีๆ เพิ่งเด็ดสดๆ มากินให้หมด';
 
-
+  if($message == "สว"){
+    $arrayPostData['to'] = $id;
+    $arrayPostData['messages'][0]['type'] = "text";
+    $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$name1."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
+  pushMsg($arrayHeader,$arrayPostData);
+  }
     //!empty == "!=" (if($_POST['username'] != NULL))
     if(!empty($_POST['recievername']) && !empty($_POST['sendername']))
 {
@@ -38,14 +43,7 @@ $content = file_get_contents('php://input');
       $arrayPostData['to'] = $_POST['reciverlineuserid'];
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$_POST['recievername']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$_POST['sendername']."\n"."ข้อความ ".$_POST['message'];
-      $arrayPostData['messages'][1]['type'] = "template";
-      $arrayPostData['messages'][1]['altText'] = "this is a buttons template";
-      $arrayPostData['messages'][1]['template'][0]['type'] = "buttons";
-      $arrayPostData['messages'][1]['template'][1]['actions'][0]['type'] = "uri";
-      $arrayPostData['messages'][1]['template'][2]['actions'][1]['label'] = "Tap Tap";
-      $arrayPostData['messages'][1]['template'][3]['actions'][2]['uri'] = "https://example.com";
-      $arrayPostData['messages'][1]['template'][4]['title'] = "Tap kiki";
-      $arrayPostData['messages'][1]['template'][5]['text'] ="Tap EiEi";
+
       pushMsg($arrayHeader,$arrayPostData);
 
       /*$arrayPostData['to'] = $queryfromdb2;
