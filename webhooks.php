@@ -44,7 +44,7 @@ $content = file_get_contents('php://input');
 
    // Close the Curl resource
    curl_close($ch);
-
+  return $sendmessage;
 
   if($id==$queryfromdb1)
   {
