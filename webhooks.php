@@ -38,6 +38,13 @@ $content = file_get_contents('php://input');
 line://app/1595423850-4b5xx9wP";
   pushMsg($arrayHeader,$arrayPostData);
 
+  if($message == "Connect1109Server"){
+    $arrayPostData['to'] = $id;
+    $arrayPostData['messages'][0]['type'] = "text";
+    $arrayPostData['messages'][0]['text'] = "https://erp.wealththai.net/userprofile/lineuserid/up?".$id;
+pushMsg($arrayHeader,$arrayPostData);
+}
+
     //!empty == "!=" (if($_POST['username'] != NULL))
     if(!empty($_POST['recievername']) && !empty($_POST['sendername']))
 {
