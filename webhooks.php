@@ -36,9 +36,9 @@ $content = file_get_contents('php://input');
 {
     if($_POST['username'] == 'guest' && $_POST['password'] == 'guest')
     {
-      $arrayPostData['to'] = $queryfromdb1;
+      $arrayPostData['to'] = [$queryfromdb1,$queryfromdb2];
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$name1."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
+      $arrayPostData['messages'][0]['text'] = "ไอดี ".$_POST['username']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$sendername."\n"."ข้อความ ".$messagesend;
       pushMsg($arrayHeader,$arrayPostData);
 
         return;
