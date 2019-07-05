@@ -38,14 +38,30 @@ $content = file_get_contents('php://input');
 line://app/1595423850-4b5xx9wP";
   pushMsg($arrayHeader,$arrayPostData);*/
 
+  if($message == "เชื่อมต่อบัญชี"){
+    $arrayPostData['to'] = $id;
+    $arrayPostData['messages'][0]['type'] = "text";
+    $arrayPostData['messages'][0]['text'] = "http://erp.wealththai.net/Profile/lineuserid/up?".$id;
+replyMsg($arrayHeader,$arrayPostData);
+}
+
   if($message == "Connect1562Server"){
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "https://erp.wealththai.net/userprofile/lineuserid/up?".$id;
 replyMsg($arrayHeader,$arrayPostData);
 }
+if(!empty($_POST['passwordconnecttolinemember']))
+{
 
-if(!empty($_POST['passwordconnecttoline']))
+    $arrayPostData['to'] = $_POST['lineid'];
+    $arrayPostData['messages'][0]['type'] = "text";
+    $arrayPostData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
+    replyMsg($arrayHeader,$arrayPostData);
+    return;
+
+}
+elseif(!empty($_POST['passwordconnecttoline']))
 {
 
     $arrayPostData['to'] = $_POST['lineid'];
