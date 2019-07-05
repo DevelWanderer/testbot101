@@ -47,18 +47,13 @@ pushMsg($arrayHeader,$arrayPostData);
 
 if(!empty($_POST['passwordconnecttoline']))
 {
-  if($_POST['passwordconnecttoline'] == 'Connect1562Server')
-  {
+
     $arrayPostData['to'] = 'Uaf703e9707ecc91b4ebb7f6bc758ee1a';
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
     pushMsg($arrayHeader,$arrayPostData);
     return;
-  }
-  else
-  {
-      return;
-  }
+
 }
     //!empty == "!=" (if($_POST['username'] != NULL))
     elseif(!empty($_POST['recievername']) && !empty($_POST['sendername']))
