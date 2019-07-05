@@ -55,8 +55,10 @@ if(!empty($_POST['passwordconnecttoline']))
     pushMsg($arrayHeader,$arrayPostData);
     return;
   }
-  return;
-}
+  else
+  {
+      return;
+  }
     //!empty == "!=" (if($_POST['username'] != NULL))
     if(!empty($_POST['recievername']) && !empty($_POST['sendername']))
 {
@@ -78,6 +80,7 @@ else
 {
     return;
 }
+
 function pushMsg($arrayHeader,$arrayPostData){
      $strUrl = "https://api.line.me/v2/bot/message/push";
      $ch = curl_init();
