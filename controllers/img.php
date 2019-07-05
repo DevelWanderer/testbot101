@@ -1,5 +1,5 @@
 <?php
-defined('testbot101/tree/master/controllers')  OR exit('No direct script access allowed');
+defined('testbot101/blob/master/controllers/')  OR exit('No direct script access allowed');
  ;
 
 // import the Intervention Image Manager Class
