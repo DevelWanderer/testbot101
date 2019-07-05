@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') ;
 
 // import the Intervention Image Manager Class
 use Intervention\Image\ImageManager;
@@ -22,6 +22,6 @@ class Img extends CI_Controller {
         // ส่ง HTTP header และข้อมูลของรูปเพื่อนำไปแสดง
         echo $img->response();
 
-    }  
+    }
 
 }
