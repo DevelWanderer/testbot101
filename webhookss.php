@@ -24,11 +24,11 @@ $content = file_get_contents('php://input');
      $arrayPostData['messages'][1]['stickerId'] = "34";
      replyMsg($arrayHeader,$arrayPostData);
   }
-  else if($message == "รูปน้องแมว"){
+  else if($message == "รูป"){
         //$image_url = "https://imgur.com/wRqLW4x";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "imagemap";
-        $arrayPostData['messages'][0]['baseUrl'] = "https://github.com/DevelWanderer/testbot101/blob/master/Image/38409924996_befaf1f33b_o/1040";
+        $arrayPostData['messages'][0]['baseUrl'] = "https://github.com/DevelWanderer/testbot101/blob/master/Image/38409924996_befaf1f33b_o.png/1040";
         $arrayPostData['messages'][0]['altText'] = "This is an imagemap";
         $arrayPostData['messages'][0]['BaseSize'][0]['wridth'] = "1040";
         $arrayPostData['messages'][0]['BaseSize'][1]['height'] = "1040";
