@@ -34,10 +34,10 @@ $content = file_get_contents('php://input');
         $arrayPostData['messages'][0]['BaseSize'][1]['height'] = "1040";
         $arrayPostData['messages'][0]['actions'][0]['type'] ="uri";
         $arrayPostData['messages'][0]['actions'][1]['area'][0]['x'] ="0";
-        $arrayPostData['messages'][0]['actions'][1]['area'][1]['y'] ="586";
-        $arrayPostData['messages'][0]['actions'][1]['area'][2]['width'] ="520";
-        $arrayPostData['messages'][0]['actions'][1]['area'][3]['height'] ="454";
-        $arrayPostData['messages'][0]['actions'][1]['linkUri'] ="https://google.com";
+        $arrayPostData['messages'][0]['actions'][2]['area'][1]['y'] ="586";
+        $arrayPostData['messages'][0]['actions'][3]['area'][2]['width'] ="520";
+        $arrayPostData['messages'][0]['actions'][4]['area'][3]['height'] ="454";
+        $arrayPostData['messages'][0]['actions'][5]['linkUri'] ="https://google.com";
         replyMsg($arrayHeader,$arrayPostData);
     }
   function replyMsg($arrayHeader,$arrayPostData){
