@@ -55,12 +55,8 @@ if(!empty($_POST['passwordconnecttoline']))
     pushMsg($arrayHeader,$arrayPostData);
     return;
   }
-  else
-  {
-      return;
-  }
     //!empty == "!=" (if($_POST['username'] != NULL))
-    if(!empty($_POST['recievername']) && !empty($_POST['sendername']))
+    elseif(!empty($_POST['recievername']) && !empty($_POST['sendername']))
 {
 
       $arrayPostData['to'] = $_POST['reciverlineuserid'];
