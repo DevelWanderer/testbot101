@@ -48,7 +48,7 @@ pushMsg($arrayHeader,$arrayPostData);
 if(!empty($_POST['passwordconnecttoline']))
 {
 
-    $arrayPostData['to'] = 'Uaf703e9707ecc91b4ebb7f6bc758ee1a';
+    $arrayPostData['to'] = $_POST['lineid'];
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
     pushMsg($arrayHeader,$arrayPostData);
