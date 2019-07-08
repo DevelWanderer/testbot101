@@ -42,14 +42,14 @@ line://app/1595423850-4b5xx9wP";
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "http://erp.wealththai.net/Profile/lineuserid/up?".$id;
-replyMsg($arrayHeader,$arrayPostData);
+replyMsg($arrayHeader,$arrayReplyData);
 }
 
   elseif($message == "Connect1562Server"){
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "https://erp.wealththai.net/userprofile/lineuserid/up?".$id;
-replyMsg($arrayHeader,$arrayPostData);
+replyMsg($arrayHeader,$arrayReplyData);
 }
 if(!empty($_POST['passwordconnecttolinemember']))
 {
@@ -57,7 +57,7 @@ if(!empty($_POST['passwordconnecttolinemember']))
     $arrayPostData['to'] = $_POST['lineid'];
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
-    pushMsg($arrayHeader,$arrayPostData);
+    pushMsg($arrayHeader,$arrayPushData);
     return;
 
 }
@@ -67,7 +67,7 @@ elseif(!empty($_POST['passwordconnecttoline']))
     $arrayPostData['to'] = $_POST['lineid'];
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
-    pushMsg($arrayHeader,$arrayPostData);
+    pushMsg($arrayHeader,$arrayPushData);
     return;
 
 }
@@ -79,7 +79,7 @@ elseif(!empty($_POST['passwordconnecttoline']))
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$_POST['recievername']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$_POST['sendername']."\n"."ข้อความ ".$_POST['message'];
 
-      pushMsg($arrayHeader,$arrayPostData);
+      pushMsg($arrayHeader,$arrayPushData);
 
       /*$arrayPostData['to'] = $queryfromdb2;
       $arrayPostData['messages'][0]['type'] = "text";
@@ -93,7 +93,7 @@ else
     return;
 }
 
-function replyMsg($arrayHeader,$arrayPostData){
+function replyMsg($arrayHeader,$arrayReplyData){
      $strUrl = "https://api.line.me/v2/bot/message/reply";
      $ch = curl_init();
      curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -106,7 +106,7 @@ function replyMsg($arrayHeader,$arrayPostData){
      $result = curl_exec($ch);
      curl_close ($ch);
   }
-  function pushMsg($arrayHeader,$arrayPostData){
+  function pushMsg($arrayHeader,$arrayPushData){
    $strUrl = "https://api.line.me/v2/bot/message/push";
    $ch = curl_init();
    curl_setopt($ch, CURLOPT_URL,$strUrl);
