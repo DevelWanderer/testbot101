@@ -38,7 +38,7 @@ array
     'width' => 1040,
     'height' => 1040,
   ),
-  'actions' =>
+  'actions' =>array(
   array (
 
       'type' => 'uri',
@@ -51,8 +51,8 @@ array
       ),
       'linkUri' => 'https://google.com',
     ),
-  )
-;
+  ),
+  );
         pushMsg($arrayHeader,$arrayPostData);
     }
   function pushMsg($arrayHeader,$arrayPostData){
