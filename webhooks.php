@@ -10,7 +10,9 @@ $content = file_get_contents('php://input');
 
   $arrayJson = json_decode($content, true);
   $arrayHeaderr = array();
-  $arrayHeaderp = array();
+  $arrayHeaderr[] = "Content-Type: application/json";
+  $arrayHeaderr[] = "Authorization: Bearer {$access_token}";
+  $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
 
@@ -58,7 +60,7 @@ if(!empty($_POST['passwordconnecttolinemember']))
     $arrayPushData['to'] = $_POST['lineid'];
     $arrayPushData['messages'][0]['type'] = "text";
     $arrayPushData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
-    pushMsg($arrayHeaderp,$arrayPushData);
+    pushMsg($arrayHeader,$arrayPushData);
     return;
 
 }
@@ -68,7 +70,7 @@ elseif(!empty($_POST['passwordconnecttoline']))
     $arrayPushData['to'] = $_POST['lineid'];
     $arrayPushData['messages'][0]['type'] = "text";
     $arrayPushData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
-    pushMsg($arrayHeaderp,$arrayPushData);
+    pushMsg($arrayHeader,$arrayPushData);
     return;
 
 }
@@ -80,7 +82,7 @@ elseif(!empty($_POST['passwordconnecttoline']))
       $arrayPushData['messages'][0]['type'] = "text";
       $arrayPushData['messages'][0]['text'] = "สวัสดีคุณ ".$_POST['recievername']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$_POST['sendername']."\n"."ข้อความ ".$_POST['message'];
 
-      pushMsg($arrayHeaderp,$arrayPushData);
+      pushMsg($arrayHeader,$arrayPushData);
 
       /*$arrayPostData['to'] = $queryfromdb2;
       $arrayPostData['messages'][0]['type'] = "text";
@@ -108,13 +110,13 @@ function replyMsg($arrayHeaderr,$arrayReplyData){
      curl_close ($chr);
   }
     exit;
-  function pushMsg($arrayHeaderp,$arrayPushData){
+  function pushMsg($arrayHeader,$arrayPushData){
    $strUrlp = "https://api.line.me/v2/bot/message/push";
    $chp = curl_init();
    curl_setopt($chp, CURLOPT_URL,$strUrlp);
    curl_setopt($chp, CURLOPT_HEADER, false);
    curl_setopt($chp, CURLOPT_POST, true);
-   curl_setopt($chp, CURLOPT_HTTPHEADER, $arrayHeaderp);
+   curl_setopt($chp, CURLOPT_HTTPHEADER, $arrayHeader);
    curl_setopt($chp, CURLOPT_POSTFIELDS, json_encode($arrayPushData));
    curl_setopt($chp, CURLOPT_RETURNTRANSFER,true);
    curl_setopt($chp, CURLOPT_SSL_VERIFYPEER, false);
