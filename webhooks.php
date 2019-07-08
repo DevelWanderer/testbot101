@@ -104,7 +104,7 @@ function replyMsg($arrayHeaderr,$arrayReplyData){
      curl_setopt($chr, CURLOPT_POSTFIELDS, json_encode($arrayReplyData));
      curl_setopt($chr, CURLOPT_RETURNTRANSFER,true);
      curl_setopt($chr, CURLOPT_SSL_VERIFYPEER, false);
-     $result = curl_exec($chr);
+     $resultr = curl_exec($chr);
      curl_close ($chr);
   }
     exit;
@@ -118,7 +118,7 @@ function replyMsg($arrayHeaderr,$arrayReplyData){
    curl_setopt($chp, CURLOPT_POSTFIELDS, json_encode($arrayPushData));
    curl_setopt($chp, CURLOPT_RETURNTRANSFER,true);
    curl_setopt($chp, CURLOPT_SSL_VERIFYPEER, false);
-   $result = curl_exec($chp);
+   $resultp = curl_exec($chp);
    curl_close ($chp);
   }
     exit;
