@@ -40,8 +40,7 @@ array
   ),
   'actions' =>
   array (
-    0 =>
-    array (
+  
       'type' => 'uri',
       'area' =>
       array (
