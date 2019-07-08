@@ -39,24 +39,24 @@ line://app/1595423850-4b5xx9wP";
   pushMsg($arrayHeader,$arrayPostData);*/
 
   if($message == "เชื่อมต่อบัญชี"){
-    $arrayPostData['to'] = $id;
-    $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = "http://erp.wealththai.net/Profile/lineuserid/up?".$id;
+    $arrayReplyData['to'] = $id;
+    $arrayReplyData['messages'][0]['type'] = "text";
+    $arrayReplyData['messages'][0]['text'] = "http://erp.wealththai.net/Profile/lineuserid/up?".$id;
 replyMsg($arrayHeader,$arrayReplyData);
 }
 
   elseif($message == "Connect1562Server"){
-    $arrayPostData['to'] = $id;
-    $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = "https://erp.wealththai.net/userprofile/lineuserid/up?".$id;
+    $arrayReplyData['to'] = $id;
+    $arrayReplyData['messages'][0]['type'] = "text";
+    $arrayReplyData['messages'][0]['text'] = "https://erp.wealththai.net/userprofile/lineuserid/up?".$id;
 replyMsg($arrayHeader,$arrayReplyData);
 }
 if(!empty($_POST['passwordconnecttolinemember']))
 {
 
-    $arrayPostData['to'] = $_POST['lineid'];
-    $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
+    $arrayPushData['to'] = $_POST['lineid'];
+    $arrayPushData['messages'][0]['type'] = "text";
+    $arrayPushData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
     pushMsg($arrayHeader,$arrayPushData);
     return;
 
@@ -64,9 +64,9 @@ if(!empty($_POST['passwordconnecttolinemember']))
 elseif(!empty($_POST['passwordconnecttoline']))
 {
 
-    $arrayPostData['to'] = $_POST['lineid'];
-    $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
+    $arrayPushData['to'] = $_POST['lineid'];
+    $arrayPushData['messages'][0]['type'] = "text";
+    $arrayPushData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
     pushMsg($arrayHeader,$arrayPushData);
     return;
 
@@ -75,9 +75,9 @@ elseif(!empty($_POST['passwordconnecttoline']))
     elseif(!empty($_POST['recievername']) && !empty($_POST['sendername']))
 {
 
-      $arrayPostData['to'] = $_POST['reciverlineuserid'];
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$_POST['recievername']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$_POST['sendername']."\n"."ข้อความ ".$_POST['message'];
+      $arrayPushData['to'] = $_POST['reciverlineuserid'];
+      $arrayPushData['messages'][0]['type'] = "text";
+      $arrayPushData['messages'][0]['text'] = "สวัสดีคุณ ".$_POST['recievername']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$_POST['sendername']."\n"."ข้อความ ".$_POST['message'];
 
       pushMsg($arrayHeader,$arrayPushData);
 
