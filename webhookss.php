@@ -40,7 +40,7 @@ array
   ),
   'actions' =>
   array (
-  
+
       'type' => 'uri',
       'area' =>
       array (
@@ -51,8 +51,8 @@ array
       ),
       'linkUri' => 'https://google.com',
     ),
-  ),
-);
+  )
+;
         pushMsg($arrayHeader,$arrayPostData);
     }
   function pushMsg($arrayHeader,$arrayPostData){
