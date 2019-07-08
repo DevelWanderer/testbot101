@@ -28,7 +28,7 @@ $content = file_get_contents('php://input');
         //$image_url = "https://imgur.com/wRqLW4x";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "imagemap";
-        $arrayPostData['messages'][0]['baseUrl'] = "https://github.com/DevelWanderer/testbot101/blob/master/Image/38409924996_befaf1f33b_o.png";
+        $arrayPostData['messages'][0]['baseUrl'] = "https://150.95.82.132:8443/smb/file-manager/show?currentDir=%2Fhttpdocs%2Ftestbot101-master%2Fimage&file=38409924996_befaf1f33b_o.png";
         $arrayPostData['messages'][0]['altText'] = "This is an imagemap";
         $arrayPostData['messages'][0]['BaseSize'][0]['wridth'] = "1040";
         $arrayPostData['messages'][0]['BaseSize'][1]['height'] = "1040";
@@ -40,8 +40,8 @@ $content = file_get_contents('php://input');
         $arrayPostData['messages'][0]['actions'][5]['linkUri'] ="https://google.com";
         pushMsg($arrayHeader,$arrayPostData);
     }
-  function replyMsg($arrayHeader,$arrayPostData){
-     $strUrl = "https://api.line.me/v2/bot/message/reply";
+  function pushMsg($arrayHeader,$arrayPostData){
+     $strUrl = "https://api.line.me/v2/bot/message/push";
      $ch = curl_init();
      curl_setopt($ch, CURLOPT_URL,$strUrl);
      curl_setopt($ch, CURLOPT_HEADER, false);

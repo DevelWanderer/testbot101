@@ -95,7 +95,7 @@ else
 {
     return;
 }
-
+  
 function replyMsg($arrayHeaderr,$arrayReplyData){
      $strUrlr = "https://api.line.me/v2/bot/message/reply";
      $chr = curl_init();
