@@ -42,14 +42,14 @@ line://app/1595423850-4b5xx9wP";
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "http://erp.wealththai.net/Profile/lineuserid/up?".$id;
-pushMsg($arrayHeader,$arrayPostData);
+replyMsg($arrayHeader,$arrayPostData);
 }
 
   elseif($message == "Connect1562Server"){
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "https://erp.wealththai.net/userprofile/lineuserid/up?".$id;
-pushMsg($arrayHeader,$arrayPostData);
+replyMsg($arrayHeader,$arrayPostData);
 }
 if(!empty($_POST['passwordconnecttolinemember']))
 {
@@ -93,8 +93,8 @@ else
     return;
 }
 
-function pushMsg($arrayHeader,$arrayPostData){
-     $strUrl = "https://api.line.me/v2/bot/message/push";
+function replyMsg($arrayHeader,$arrayPostData){
+     $strUrl = "https://api.line.me/v2/bot/message/reply";
      $ch = curl_init();
      curl_setopt($ch, CURLOPT_URL,$strUrl);
      curl_setopt($ch, CURLOPT_HEADER, false);
@@ -106,5 +106,19 @@ function pushMsg($arrayHeader,$arrayPostData){
      $result = curl_exec($ch);
      curl_close ($ch);
   }
-  exit;
+  function pushMsg($arrayHeader,$arrayPostData){
+   $strUrl = "https://api.line.me/v2/bot/message/push";
+   $ch = curl_init();
+   curl_setopt($ch, CURLOPT_URL,$strUrl);
+   curl_setopt($ch, CURLOPT_HEADER, false);
+   curl_setopt($ch, CURLOPT_POST, true);
+   curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+   $result = curl_exec($ch);
+   curl_close ($ch);
+  }
+    exit;
+
 ?>
