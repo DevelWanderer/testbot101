@@ -9,7 +9,8 @@ $access_token ='YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8Mv
 $content = file_get_contents('php://input');
 
   $arrayJson = json_decode($content, true);
-  $arrayHeader = array();
+  $arrayHeaderr = array();
+  $arrayHeaderp = array();
   $arrayHeader[] = "Content-Type: application/json";
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
 
@@ -42,14 +43,14 @@ line://app/1595423850-4b5xx9wP";
     $arrayReplyData['to'] = $id;
     $arrayReplyData['messages'][0]['type'] = "text";
     $arrayReplyData['messages'][0]['text'] = "http://erp.wealththai.net/Profile/lineuserid/up?".$id;
-replyMsg($arrayHeader,$arrayReplyData);
+replyMsg($arrayHeaderr,$arrayReplyData);
 }
 
   elseif($message == "Connect1562Server"){
     $arrayReplyData['to'] = $id;
     $arrayReplyData['messages'][0]['type'] = "text";
     $arrayReplyData['messages'][0]['text'] = "https://erp.wealththai.net/userprofile/lineuserid/up?".$id;
-replyMsg($arrayHeader,$arrayReplyData);
+replyMsg($arrayHeaderr,$arrayReplyData);
 }
 if(!empty($_POST['passwordconnecttolinemember']))
 {
@@ -57,7 +58,7 @@ if(!empty($_POST['passwordconnecttolinemember']))
     $arrayPushData['to'] = $_POST['lineid'];
     $arrayPushData['messages'][0]['type'] = "text";
     $arrayPushData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
-    pushMsg($arrayHeader,$arrayPushData);
+    pushMsg($arrayHeaderp,$arrayPushData);
     return;
 
 }
@@ -67,7 +68,7 @@ elseif(!empty($_POST['passwordconnecttoline']))
     $arrayPushData['to'] = $_POST['lineid'];
     $arrayPushData['messages'][0]['type'] = "text";
     $arrayPushData['messages'][0]['text'] = 'เชื่อมต่อไลน์กับบัญชีระบบ Wealththai ของคุณเรียบร้อยแล้ว!';
-    pushMsg($arrayHeader,$arrayPushData);
+    pushMsg($arrayHeaderp,$arrayPushData);
     return;
 
 }
@@ -79,7 +80,7 @@ elseif(!empty($_POST['passwordconnecttoline']))
       $arrayPushData['messages'][0]['type'] = "text";
       $arrayPushData['messages'][0]['text'] = "สวัสดีคุณ ".$_POST['recievername']."สวัสดีคุณ ".$_POST['username']."\n"."มีข้อความใหม่ส่งถึงคุณ"."\n"."ส่งมาจาก ".$_POST['sendername']."\n"."ข้อความ ".$_POST['message'];
 
-      pushMsg($arrayHeader,$arrayPushData);
+      pushMsg($arrayHeaderp,$arrayPushData);
 
       /*$arrayPostData['to'] = $queryfromdb2;
       $arrayPostData['messages'][0]['type'] = "text";
@@ -93,31 +94,31 @@ else
     return;
 }
 
-function replyMsg($arrayHeader,$arrayReplyData){
-     $strUrl = "https://api.line.me/v2/bot/message/reply";
-     $ch = curl_init();
-     curl_setopt($ch, CURLOPT_URL,$strUrl);
-     curl_setopt($ch, CURLOPT_HEADER, false);
-     curl_setopt($ch, CURLOPT_POST, true);
-     curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayReplyData));
-     curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-     $result = curl_exec($ch);
-     curl_close ($ch);
+function replyMsg($arrayHeaderr,$arrayReplyData){
+     $strUrlr = "https://api.line.me/v2/bot/message/reply";
+     $chr = curl_init();
+     curl_setopt($chr, CURLOPT_URL,$strUrlr);
+     curl_setopt($chr, CURLOPT_HEADER, false);
+     curl_setopt($chr, CURLOPT_POST, true);
+     curl_setopt($chr, CURLOPT_HTTPHEADER, $arrayHeaderr);
+     curl_setopt($chr, CURLOPT_POSTFIELDS, json_encode($arrayReplyData));
+     curl_setopt($chr, CURLOPT_RETURNTRANSFER,true);
+     curl_setopt($chr, CURLOPT_SSL_VERIFYPEER, false);
+     $result = curl_exec($chr);
+     curl_close ($chr);
   }
-  function pushMsg($arrayHeader,$arrayPushData){
-   $strUrl = "https://api.line.me/v2/bot/message/push";
-   $ch = curl_init();
-   curl_setopt($ch, CURLOPT_URL,$strUrl);
-   curl_setopt($ch, CURLOPT_HEADER, false);
-   curl_setopt($ch, CURLOPT_POST, true);
-   curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPushData));
-   curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-   $result = curl_exec($ch);
-   curl_close ($ch);
+  function pushMsg($arrayHeaderp,$arrayPushData){
+   $strUrlp = "https://api.line.me/v2/bot/message/push";
+   $chp = curl_init();
+   curl_setopt($chp, CURLOPT_URL,$strUrlp);
+   curl_setopt($chp, CURLOPT_HEADER, false);
+   curl_setopt($chp, CURLOPT_POST, true);
+   curl_setopt($chp, CURLOPT_HTTPHEADER, $arrayHeaderp);
+   curl_setopt($chp, CURLOPT_POSTFIELDS, json_encode($arrayPushData));
+   curl_setopt($chp, CURLOPT_RETURNTRANSFER,true);
+   curl_setopt($chp, CURLOPT_SSL_VERIFYPEER, false);
+   $result = curl_exec($chp);
+   curl_close ($chp);
   }
     exit;
 
