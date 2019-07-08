@@ -40,14 +40,14 @@ line://app/1595423850-4b5xx9wP";
   pushMsg($arrayHeader,$arrayPostData);*/
 
   if($message == "เชื่อมต่อบัญชี"){
-    $arrayReplyData['to'] = $id;
+    $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
     $arrayReplyData['messages'][0]['type'] = "text";
     $arrayReplyData['messages'][0]['text'] = "http://erp.wealththai.net/Profile/lineuserid/up?".$id;
 replyMsg($arrayHeaderr,$arrayReplyData);
 }
 
   elseif($message == "Connect1562Server"){
-    $arrayReplyData['to'] = $id;
+    $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
     $arrayReplyData['messages'][0]['type'] = "text";
     $arrayReplyData['messages'][0]['text'] = "https://erp.wealththai.net/userprofile/lineuserid/up?".$id;
 replyMsg($arrayHeaderr,$arrayReplyData);
