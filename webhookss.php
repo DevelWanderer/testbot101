@@ -28,7 +28,7 @@ $content = file_get_contents('php://input');
         //$image_url = "https://imgur.com/wRqLW4x";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'] = array(
-          "type": "imagemap",
+          "type"=> "imagemap",
           "baseUrl" => "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040",
           "altText"=> "This is an imagemap",
           "baseSize"=> array(
@@ -47,7 +47,7 @@ $content = file_get_contents('php://input');
               "linkUri"=> "https://google.com"
             )
           )
-        )
+        );
 
         pushMsg($arrayHeader,$arrayPostData);
     }
