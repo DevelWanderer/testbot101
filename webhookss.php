@@ -26,10 +26,9 @@ $content = file_get_contents('php://input');
      $arrayReplyData['messages'][1]['type'] = "sticker";
      $arrayReplyData['messages'][1]['packageId'] = "2";
      $arrayReplyData['messages'][1]['stickerId'] = "34";
-     replyMsg($arrayHeader,$arrayReplyData);
+     replyMsg($arrayHeaderr,$arrayReplyData);
   }
   elseif($message == "รูป"){
-        //$image_url = "https://imgur.com/wRqLW4x";
         $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayReplyData['messages'][0]['type'] = "imagemap";
         $arrayReplyData['messages'][0]['baseUrl'] = $image_url;
@@ -41,10 +40,10 @@ $content = file_get_contents('php://input');
         $arrayReplyData['messages'][0]['action'][2]['area'][1]['y'] = "18";
         $arrayReplyData['messages'][0]['action'][3]['area'][2]['width'] = "1006";
         $arrayReplyData['messages'][0]['action'][4]['area'][3]['height'] = "1001";
-        $arrayReplyData['messages'][0]['action'][5]['linkUri']  = "https://google.com";
+        //$arrayReplyData['messages'][0]['action'][5]['linkUri']  = "https://google.com";
 
 
-        replyMsg($arrayHeader,$arrayReplyData);
+        replyMsg($arrayHeaderr,$arrayReplyData);
     }
     elseif($message == "แมว"){
 
@@ -52,7 +51,7 @@ $content = file_get_contents('php://input');
       $arrayReplyData['messages'][0]['type'] = "image";
       $arrayReplyData['messages'][0]['originalContentUrl'] = $image_url;
       $arrayReplyData['messages'][0]['previewImageUrl'] = $image_url;
-      replyMsg($arrayHeader,$arrayReplyData);
+      replyMsg($arrayHeaderr,$arrayReplyData);
     }
     elseif($message == "เทส"){
       $image_urla = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
@@ -60,7 +59,7 @@ $content = file_get_contents('php://input');
       $arrayReplyData['messages'][0]['type'] = "image";
       $arrayReplyData['messages'][0]['originalContentUrl'] = $image_urla;
       $arrayReplyData['messages'][0]['previewImageUrl'] = $image_urla;
-      replyMsg($arrayHeader,$arrayReplyData);
+      replyMsg($arrayHeaderr,$arrayReplyData);
     }
 
     function replyMsg($arrayHeaderr,$arrayReplyData){
