@@ -13,7 +13,7 @@ $content = file_get_contents('php://input');
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
-  $image_url = "https://imgur.com/wRqLW4x.png/1040";
+  $image_url = "https://imgur.com/TDzbg5Y.png/1040";
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
