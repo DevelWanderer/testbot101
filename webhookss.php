@@ -13,7 +13,7 @@ $content = file_get_contents('php://input');
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
-  $image_url = "https://imgur.com/TDzbg5Y.png/1040";
+  $image_url = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
@@ -34,7 +34,14 @@ $content = file_get_contents('php://input');
         $arrayReplyData['messages'][0]['type'] = "imagemap";
         $arrayReplyData['messages'][0]['baseUrl'] = $image_url;
         $arrayReplyData['messages'][0]['altText'] = "This is an imagemap";
-        $arrayReplyData['messages'][0]['baseSize'] =
+        $arrayReplyData['messages'][0]['baseSize'][0]['width'] = 1040;
+        $arrayReplyData['messages'][0]['baseSize'][1]['height'] = 1040;
+        $arrayReplyData['messages'][0]['action'][0]['type'] = "uri";
+        $arrayReplyData['messages'][0]['action'][1]['area'][0]['x'] = 16;
+        $arrayReplyData['messages'][0]['action'][2]['area'][1]['y'] = 18;
+        $arrayReplyData['messages'][0]['action'][3]['area'][2]['width'] = 1006;
+        $arrayReplyData['messages'][0]['action'][4]['area'][3]['height'] = 1001;
+        $arrayReplyData['messages'][0]['action'][5]['linkUri']  = "https://google.com";
 
 
         replyMsg($arrayHeader,$arrayReplyData);
