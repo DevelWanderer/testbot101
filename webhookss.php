@@ -1,8 +1,7 @@
 <?php // callback.php
 require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'db32fb138596ee65f9fdb320c4a9375c']);
+$access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
 
 
 
@@ -11,10 +10,10 @@ $content = file_get_contents('php://input');
   $arrayJson = json_decode($content, true);
   $arrayHeaderr = array();
   $arrayHeaderr[] = "Content-Type: application/json";
-  $arrayHeaderr[] = "Authorization: Bearer {$httpClient}";
+  $arrayHeaderr[] = "Authorization: Bearer {$access_token}";
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
-  $arrayHeader[] = "Authorization: Bearer {$httpClient}";
+  $arrayHeader[] = "Authorization: Bearer {$access_token}";
   $image_url = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
