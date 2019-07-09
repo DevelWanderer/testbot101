@@ -31,22 +31,22 @@ $content = file_get_contents('php://input');
         //$image_url = "https://imgur.com/wRqLW4x";
         $arrayPushData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPushData['messages'] = array(
-          "type"=> "imagemap",
-          "baseUrl" => "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040",
-          "altText"=> "This is an imagemap",
-          "baseSize"=> array(
-            "width"=> 1040,
-            "height"=> 1040
+          'type'=> "imagemap",
+          'baseUrl' => "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040",
+          'altText'=> "This is an imagemap",
+          'baseSize'=> array(
+            'width'=> 1040,
+            'height'=> 1040
           ),
-          "actions"=> array(
-              "type"=> "uri",
-              "area"=> array(
-                "x"=> 16,
-                "y"=> 18,
-                "width"=> 1006,
-                "height"=> 1001
+          'actions'=> array(
+              'type'=> "uri",
+              'area'=> array(
+                'x'=> 16,
+                'y'=> 18,
+                'width'=> 1006,
+                'height'=> 1001
               ),
-              "linkUri"=> "https://google.com"
+              'linkUri'=> "https://google.com"
             )
 
         );
