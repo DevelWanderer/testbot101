@@ -56,7 +56,7 @@ $content = file_get_contents('php://input');
       $arrayReplyData['messages'][0]['previewImageUrl'] = $image_url;
       replyMsg($arrayHeaderr,$arrayReplyData);
     }
-    elseif($message == "เทส"){
+    elseif($message == "*เทส*"){
       $image_urla = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
