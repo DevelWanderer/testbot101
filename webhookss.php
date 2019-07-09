@@ -11,10 +11,10 @@ $content = file_get_contents('php://input');
   $arrayJson = json_decode($content, true);
   $arrayHeaderr = array();
   $arrayHeaderr[] = "Content-Type: application/json";
-  $arrayHeaderr[] = "Authorization: Bearer {$bot}";
+  $arrayHeaderr[] = "Authorization: Bearer {$httpClient}";
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
-  $arrayHeader[] = "Authorization: Bearer {$bot}";
+  $arrayHeader[] = "Authorization: Bearer {$httpClient}";
   $image_url = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
