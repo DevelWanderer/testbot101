@@ -54,10 +54,11 @@ $content = file_get_contents('php://input');
         pushMsg($arrayHeader,$arrayPushData);
     }
     elseif($message == "เหอะ"){
+      $image_url = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png";
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
-      $arrayReplyData['messages'][0]['originalContentUrl'] = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png";
-      $arrayReplyData['messages'][0]['previewImageUrl'] = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png";
+      $arrayReplyData['messages'][0]['originalContentUrl'] = $image_url;
+      $arrayReplyData['messages'][0]['previewImageUrl'] = $image_url;
       replyMsg($arrayHeader,$arrayReplyData);
     }
 
