@@ -30,29 +30,14 @@ $content = file_get_contents('php://input');
   }
   elseif($message == "รูป"){
         //$image_url = "https://imgur.com/wRqLW4x";
-        $arrayPushData['to'] = $id;
-        $arrayPushData  = array(
-          'type'=> "imagemap",
-          'baseUrl' => $image_url,
-          'altText'=> "This is an imagemap",
-          'baseSize'=> array(
-            'width'=> 1040,
-            'height'=> 1040
-          ),
-          'actions'=> array(
-              'type'=> "uri",
-              'area'=> array(
-                'x'=> 16,
-                'y'=> 18,
-                'width'=> 1006,
-                'height'=> 1001
-              ),
-              'linkUri'=> "https://google.com"
-            )
+        $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayReplyData['messages'][0]['type'] = "imagemap";
+        $arrayReplyData['messages'][0]['baseUrl'] = $image_url;
+        $arrayReplyData['messages'][0]['altText'] = "This is an imagemap";
+        $arrayReplyData['messages'][0]['baseSize'] =
 
-        );
 
-        pushMsg($arrayHeader,$arrayPushData);
+        replyMsg($arrayHeader,$arrayReplyData);
     }
     elseif($message == "แมว"){
 
@@ -63,7 +48,7 @@ $content = file_get_contents('php://input');
       replyMsg($arrayHeader,$arrayReplyData);
     }
     elseif($message == "เทส"){
-      $image_urla = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
+      $image_urla = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
       $arrayReplyData['messages'][0]['originalContentUrl'] = $image_urla;
