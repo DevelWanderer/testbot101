@@ -27,9 +27,9 @@ $content = file_get_contents('php://input');
      $arrayReplyData['messages'][1]['stickerId'] = "34";
      replyMsg($arrayHeader,$arrayReplyData);
   }
-  else if($message == "รูป"){
+  elseif($message == "รูป"){
         //$image_url = "https://imgur.com/wRqLW4x";
-        $arrayPushData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPushData['to'] = $id;
         $arrayPushData['messages'] = array(
           'type'=> "imagemap",
           'baseUrl' => "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040",
@@ -53,6 +53,14 @@ $content = file_get_contents('php://input');
 
         pushMsg($arrayHeader,$arrayPushData);
     }
+    elseif($message == "เหอะ"){
+      $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+      $arrayReplyData['messages'][0]['type'] = "image";
+      $arrayReplyData['messages'][0]['originalContentUrl'] = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
+      $arrayReplyData['messages'][0]['previewImageUrl'] = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
+      replyMsg($arrayHeader,$arrayReplyData);
+    }
+
     function replyMsg($arrayHeaderr,$arrayReplyData){
          $strUrlr = "https://api.line.me/v2/bot/message/reply";
          $chr = curl_init();
