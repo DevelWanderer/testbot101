@@ -31,7 +31,7 @@ $content = file_get_contents('php://input');
   elseif($message == "รูป"){
         $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayReplyData['messages'][0]['type'] = "imagemap";
-        $arrayReplyData['messages'][0]['baseUrl'] = $image_url;
+        $arrayReplyData['messages'][0]['baseUrl'] = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png";
         $arrayReplyData['messages'][0]['altText'] = "This is an imagemap";
         $arrayReplyData['messages'][0]['baseSize']['width'] = "1040";
         $arrayReplyData['messages'][0]['baseSize']['height'] = "1040";
