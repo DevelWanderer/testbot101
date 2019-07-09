@@ -31,7 +31,7 @@ $content = file_get_contents('php://input');
   elseif($message == "รูป"){
         //$image_url = "https://imgur.com/wRqLW4x";
         $arrayPushData['to'] = $id;
-        $arrayPushData['messages'] = array(
+        $arrayPushData('messages') = array(
           'type'=> "imagemap",
           'baseUrl' => $image_url,
           'altText'=> "This is an imagemap",
