@@ -7,6 +7,9 @@ $access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8M
 // Get POST body content
 $content = file_get_contents('php://input');
   $arrayJson = json_decode($content, true);
+  $arrayHeaderr = array();
+  $arrayHeaderr[] = "Content-Type: application/json";
+  $arrayHeaderr[] = "Authorization: Bearer {$access_token}";
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
@@ -16,18 +19,18 @@ $content = file_get_contents('php://input');
   $id = $arrayJson['events'][0]['source']['userId'];
   #ตัวอย่าง Message Type "Text + Sticker"
   if($message == "สวัสดี"){
-     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-     $arrayPostData['messages'][0]['type'] = "text";
-     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$id;
-     $arrayPostData['messages'][1]['type'] = "sticker";
-     $arrayPostData['messages'][1]['packageId'] = "2";
-     $arrayPostData['messages'][1]['stickerId'] = "34";
-     replyMsg($arrayHeader,$arrayPostData);
+     $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+     $arrayReplyData['messages'][0]['type'] = "text";
+     $arrayReplyData['messages'][0]['text'] = "สวัสดีจ้าาา".$id;
+     $arrayReplyData['messages'][1]['type'] = "sticker";
+     $arrayReplyData['messages'][1]['packageId'] = "2";
+     $arrayReplyData['messages'][1]['stickerId'] = "34";
+     replyMsg($arrayHeader,$arrayReplyData);
   }
   else if($message == "รูป"){
         //$image_url = "https://imgur.com/wRqLW4x";
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'] = array(
+        $arrayPushData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPushData['messages'] = array(
           "type"=> "imagemap",
           "baseUrl" => "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040",
           "altText"=> "This is an imagemap",
@@ -36,7 +39,6 @@ $content = file_get_contents('php://input');
             "height"=> 1040
           ),
           "actions"=> array(
-            array(
               "type"=> "uri",
               "area"=> array(
                 "x"=> 16,
@@ -46,37 +48,37 @@ $content = file_get_contents('php://input');
               ),
               "linkUri"=> "https://google.com"
             )
-          )
+
         );
 
-        pushMsg($arrayHeader,$arrayPostData);
+        pushMsg($arrayHeader,$arrayPushData);
     }
-  function pushMsg($arrayHeader,$arrayPostData){
-     $strUrl = "https://api.line.me/v2/bot/message/push";
-     $ch = curl_init();
-     curl_setopt($ch, CURLOPT_URL,$strUrl);
-     curl_setopt($ch, CURLOPT_HEADER, false);
-     curl_setopt($ch, CURLOPT_POST, true);
-     curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-     curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-     $result = curl_exec($ch);
-     curl_close ($ch);
-  }
-
-/*function pushMsg($arrayHeader,$arrayPostData){
- $strUrl = "https://api.line.me/v2/bot/message/push";
- $ch = curl_init();
- curl_setopt($ch, CURLOPT_URL,$strUrl);
- curl_setopt($ch, CURLOPT_HEADER, false);
- curl_setopt($ch, CURLOPT_POST, true);
- curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
- curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
- curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
- curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
- $result = curl_exec($ch);
- curl_close ($ch);
-}*/
+    function replyMsg($arrayHeaderr,$arrayReplyData){
+         $strUrlr = "https://api.line.me/v2/bot/message/reply";
+         $chr = curl_init();
+         curl_setopt($chr, CURLOPT_URL,$strUrlr);
+         curl_setopt($chr, CURLOPT_HEADER, false);
+         curl_setopt($chr, CURLOPT_POST, true);
+         curl_setopt($chr, CURLOPT_HTTPHEADER, $arrayHeaderr);
+         curl_setopt($chr, CURLOPT_POSTFIELDS, json_encode($arrayReplyData));
+         curl_setopt($chr, CURLOPT_RETURNTRANSFER,true);
+         curl_setopt($chr, CURLOPT_SSL_VERIFYPEER, false);
+         $resultr = curl_exec($chr);
+         curl_close ($chr);
+      }
+        exit;
+      function pushMsg($arrayHeader,$arrayPushData){
+       $strUrlp = "https://api.line.me/v2/bot/message/push";
+       $chp = curl_init();
+       curl_setopt($chp, CURLOPT_URL,$strUrlp);
+       curl_setopt($chp, CURLOPT_HEADER, false);
+       curl_setopt($chp, CURLOPT_POST, true);
+       curl_setopt($chp, CURLOPT_HTTPHEADER, $arrayHeader);
+       curl_setopt($chp, CURLOPT_POSTFIELDS, json_encode($arrayPushData));
+       curl_setopt($chp, CURLOPT_RETURNTRANSFER,true);
+       curl_setopt($chp, CURLOPT_SSL_VERIFYPEER, false);
+       $resultp = curl_exec($chp);
+       curl_close ($chp);
+      }
   exit;
 ?>
