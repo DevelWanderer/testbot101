@@ -48,7 +48,7 @@ $content = file_get_contents('php://input');
         replyMsg($arrayHeaderr,$arrayReplyData);
     }
 
-    elseif($message == "แมว"){
+    elseif($message == "*แมว*"){
 
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
