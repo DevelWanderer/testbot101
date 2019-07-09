@@ -40,7 +40,7 @@ $content = file_get_contents('php://input');
         $arrayReplyData['messages'][0]['action'][1]['area'][1]['y'] = "18";
         $arrayReplyData['messages'][0]['action'][1]['area'][2]['width'] = "1006";
         $arrayReplyData['messages'][0]['action'][1]['area'][3]['height'] = "1001";
-        //$arrayReplyData['messages'][0]['action'][5]['linkUri']  = "https://google.com";
+        $arrayReplyData['messages'][0]['action'][2]['linkUri']  = "https://google.com";
 
 
         replyMsg($arrayHeaderr,$arrayReplyData);
