@@ -13,6 +13,7 @@ $content = file_get_contents('php://input');
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
+  $image_url = "https://imgur.com/wRqLW4x.png/1040";
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
@@ -54,7 +55,7 @@ $content = file_get_contents('php://input');
         pushMsg($arrayHeader,$arrayPushData);
     }
     elseif($message == "แมว"){
-      $image_url = "https://imgur.com/wRqLW4x.png/1040";
+
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
       $arrayReplyData['messages'][0]['originalContentUrl'] = $image_url;
@@ -62,11 +63,11 @@ $content = file_get_contents('php://input');
       replyMsg($arrayHeader,$arrayReplyData);
     }
     elseif($message == "เทส"){
-      $image_url = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
+      $image_urla = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
-      $arrayReplyData['messages'][0]['originalContentUrl'] = $image_url;
-      $arrayReplyData['messages'][0]['previewImageUrl'] = $image_url;
+      $arrayReplyData['messages'][0]['originalContentUrl'] = $image_urla;
+      $arrayReplyData['messages'][0]['previewImageUrl'] = $image_urla;
       replyMsg($arrayHeader,$arrayReplyData);
     }
 
