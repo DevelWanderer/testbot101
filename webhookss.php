@@ -3,18 +3,7 @@ require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
 
-use LINE\LINEBot;
-use LINE\LINEBot\Constant\ActionType;
-use LINE\LINEBot\Constant\MessageType;
-use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
-use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
-use LINE\LINEBot\MessageBuilder\Imagemap\VideoBuilder;
-use LINE\LINEBot\MessageBuilder\Imagemap\ExternalLinkBuilder;
-use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
-use LINE\Tests\LINEBot\Util\DummyHttpClient;
-use PHPUnit\Framework\TestCase;
+
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -43,16 +32,16 @@ $content = file_get_contents('php://input');
   elseif($message == "รูป"){
         $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayReplyData['messages'][0]['type'] = "imagemap";
-        $arrayReplyData['messages'][0]['baseUrl'] = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png";
-        $arrayReplyData['messages'][0]['altText'] = "This is an imagemap";
-        $arrayReplyData['messages'][0]['baseSize']['width'] = "1040";
-        $arrayReplyData['messages'][0]['baseSize']['height'] = "1040";
-        $arrayReplyData['messages'][0]['action'][0]['type'] = "uri";
-        $arrayReplyData['messages'][0]['action'][0]['linkUri']  = "https://google.com";
-        $arrayReplyData['messages'][0]['action'][0]['area']['x'] = "16";
-        $arrayReplyData['messages'][0]['action'][0]['area']['y'] = "18";
-        $arrayReplyData['messages'][0]['action'][0]['area']['width'] = "1006";
-        $arrayReplyData['messages'][0]['action'][0]['area']['height'] = "1001";
+        $arrayReplyData['messages'][1]['baseUrl'] = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png";
+        $arrayReplyData['messages'][2]['altText'] = "This is an imagemap";
+        $arrayReplyData['messages'][3]['baseSize'][0]['width'] = "1040";
+        $arrayReplyData['messages'][3]['baseSize'][1]['height'] = "1040";
+        $arrayReplyData['messages'][4]['action'][0]['type'] = "uri";
+        $arrayReplyData['messages'][4]['action'][1]['linkUri']  = "https://google.com";
+        $arrayReplyData['messages'][4]['action'][2]['area'][0]['x'] = "16";
+        $arrayReplyData['messages'][4]['action'][2]['area'][1]['y'] = "18";
+        $arrayReplyData['messages'][4]['action'][2]['area'][2]['width'] = "1006";
+        $arrayReplyData['messages'][4]['action'][2]['area'][3]['height'] = "1001";
 
 
 
