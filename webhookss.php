@@ -1,7 +1,8 @@
 <?php // callback.php
 require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-$access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=');
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'db32fb138596ee65f9fdb320c4a9375c']);
 
 
 
@@ -10,10 +11,10 @@ $content = file_get_contents('php://input');
   $arrayJson = json_decode($content, true);
   $arrayHeaderr = array();
   $arrayHeaderr[] = "Content-Type: application/json";
-  $arrayHeaderr[] = "Authorization: Bearer {$access_token}";
+  $arrayHeaderr[] = "Authorization: Bearer {$bot}";
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
-  $arrayHeader[] = "Authorization: Bearer {$access_token}";
+  $arrayHeader[] = "Authorization: Bearer {$bot}";
   $image_url = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
@@ -36,12 +37,12 @@ $content = file_get_contents('php://input');
         $arrayReplyData['messages'][0]['altText'] = "This is an imagemap";
         $arrayReplyData['messages'][0]['baseSize'][0]['width'] = "1040";
         $arrayReplyData['messages'][0]['baseSize'][1]['height'] = "1040";
-        $arrayReplyData['messages'][1]['action'][0]['type'] = "uri";
-        $arrayReplyData['messages'][1]['action'][1]['linkUri']  = "https://google.com";
-        $arrayReplyData['messages'][1]['action'][2]['area'][0]['x'] = "16";
-        $arrayReplyData['messages'][1]['action'][2]['area'][1]['y'] = "18";
-        $arrayReplyData['messages'][1]['action'][2]['area'][2]['width'] = "1006";
-        $arrayReplyData['messages'][1]['action'][2]['area'][3]['height'] = "1001";
+        $arrayReplyData['messages'][0]['action'][0]['type'] = "uri";
+        $arrayReplyData['messages'][0]['action'][1]['linkUri']  = "https://google.com";
+        $arrayReplyData['messages'][0]['action'][2]['area'][0]['x'] = "16";
+        $arrayReplyData['messages'][0]['action'][2]['area'][1]['y'] = "18";
+        $arrayReplyData['messages'][0]['action'][2]['area'][2]['width'] = "1006";
+        $arrayReplyData['messages'][0]['action'][2]['area'][3]['height'] = "1001";
 
 
 
@@ -56,7 +57,7 @@ $content = file_get_contents('php://input');
       $arrayReplyData['messages'][0]['previewImageUrl'] = $image_url;
       replyMsg($arrayHeaderr,$arrayReplyData);
     }
-    elseif($message == "*เทส*"){
+    elseif($message == "เทส"){
       $image_urla = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
