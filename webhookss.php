@@ -35,7 +35,7 @@ $content = file_get_contents('php://input');
         $arrayReplyData['messages'][0]['altText'] = "This is an imagemap";
         $arrayReplyData['messages'][0]['baseSize'][0]['width'] = "1040";
         $arrayReplyData['messages'][0]['baseSize'][1]['height'] = "1040";
-        
+
 
 
         replyMsg($arrayHeaderr,$arrayReplyData);
@@ -43,7 +43,7 @@ $content = file_get_contents('php://input');
     elseif($message == "แมว"){
 
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-      $arrayReplyData['messages'][0]['type'] = "image";
+      $arrayReplyData['messages'][0]['type'] = "imagemap";
       $arrayReplyData['messages'][0]['originalContentUrl'] = $image_url;
       $arrayReplyData['messages'][0]['previewImageUrl'] = $image_url;
       replyMsg($arrayHeaderr,$arrayReplyData);
