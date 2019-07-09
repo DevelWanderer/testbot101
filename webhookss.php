@@ -54,7 +54,7 @@ $content = file_get_contents('php://input');
         pushMsg($arrayHeader,$arrayPushData);
     }
     elseif($message == "เหอะ"){
-      $image_url = "https://imgur.com/wRqLW4x";
+      $image_url = "https://imgur.com/wRqLW4x.png/1040";
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
       $arrayReplyData['messages'][0]['originalContentUrl'] = $image_url;
