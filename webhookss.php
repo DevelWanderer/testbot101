@@ -54,7 +54,7 @@ $content = file_get_contents('php://input');
         pushMsg($arrayHeader,$arrayPushData);
     }
     elseif($message == "เหอะ"){
-      $image_url = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png";
+      $image_url = "https://imgur.com/wRqLW4x";
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
       $arrayReplyData['messages'][0]['originalContentUrl'] = $image_url;
