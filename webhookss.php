@@ -30,17 +30,18 @@ $content = file_get_contents('php://input');
   }
   elseif($message == "รูป"){
         $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayReplyData['messages'][0]['type'] = "image";
+        $arrayReplyData['messages'][0]['type'] = "imagemap";
         $arrayReplyData['messages'][0]['baseUrl'] = $image_url;
         $arrayReplyData['messages'][0]['altText'] = "This is an imagemap";
-        $arrayReplyData['messages'][0]['baseSize'][0]['width'] = "1040";
-        $arrayReplyData['messages'][0]['baseSize'][1]['height'] = "1040";
+        $arrayReplyData['messages'][0]['baseSize']['width'] = "1040";
+        $arrayReplyData['messages'][0]['baseSize']['height'] = "1040";
         $arrayReplyData['messages'][0]['action'][0]['type'] = "uri";
-        $arrayReplyData['messages'][0]['action'][1]['area'][0]['x'] = "16";
-        $arrayReplyData['messages'][0]['action'][1]['area'][1]['y'] = "18";
-        $arrayReplyData['messages'][0]['action'][1]['area'][2]['width'] = "1006";
-        $arrayReplyData['messages'][0]['action'][1]['area'][3]['height'] = "1001";
-        $arrayReplyData['messages'][0]['action'][2]['linkUri']  = "https://google.com";
+        $arrayReplyData['messages'][0]['action'][0]['linkUri']  = "https://google.com";
+        $arrayReplyData['messages'][0]['action'][0]['area']['x'] = "16";
+        $arrayReplyData['messages'][0]['action'][0]['area']['y'] = "18";
+        $arrayReplyData['messages'][0]['action'][0]['area']['width'] = "1006";
+        $arrayReplyData['messages'][0]['action'][0]['area']['height'] = "1001";
+
 
 
         replyMsg($arrayHeaderr,$arrayReplyData);
