@@ -27,17 +27,27 @@ $content = file_get_contents('php://input');
   else if($message == "รูป"){
         //$image_url = "https://imgur.com/wRqLW4x";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "imagemap";
-        $arrayPostData['messages'][0]['baseUrl'] = "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
-        $arrayPostData['messages'][0]['altText'] = "This is an imagemap";
-        $arrayPostData['messages'][0]['baseSize'][0]['wridth'] = "1040";
-        $arrayPostData['messages'][0]['baseSize'][1]['height'] = "1040";
-        $arrayPostData['messages'][0]['actions'][0]['type'] ="uri";
-        $arrayPostData['messages'][0]['actions'][1]['linkUri'] ="https://google.com";
-        $arrayPostData['messages'][0]['actions'][2]['area'][0]['x'] ="0";
-        $arrayPostData['messages'][0]['actions'][3]['area'][1]['y'] ="586";
-        $arrayPostData['messages'][0]['actions'][4]['area'][2]['width'] ="520";
-        $arrayPostData['messages'][0]['actions'][5]['area'][3]['height'] ="454";
+        $arrayPostData['messages'] = array(
+          "type": "imagemap",
+          "baseUrl" => "http://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040",
+          "altText"=> "This is an imagemap",
+          "baseSize"=> array(
+            "width"=> 1040,
+            "height"=> 1040
+          ),
+          "actions"=> array(
+            array(
+              "type"=> "uri",
+              "area"=> array(
+                "x"=> 16,
+                "y"=> 18,
+                "width"=> 1006,
+                "height"=> 1001
+              ),
+              "linkUri"=> "https://google.com"
+            )
+          )
+        )
 
         pushMsg($arrayHeader,$arrayPostData);
     }
