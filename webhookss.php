@@ -37,10 +37,10 @@ $content = file_get_contents('php://input');
         $arrayReplyData['messages'][0]['baseSize']['height'] = "1040";
         $arrayReplyData['messages'][0]['action'][0]['type'] = "uri";
         $arrayReplyData['messages'][0]['action'][0]['linkUri']  = "https://google.com";
-        $arrayReplyData['messages'][0]['action'][0]['area']['x'] = "16";
-        $arrayReplyData['messages'][0]['action'][0]['area']['y'] = "18";
-        $arrayReplyData['messages'][0]['action'][0]['area']['width'] = "1006";
-        $arrayReplyData['messages'][0]['action'][0]['area']['height'] = "1001";
+        $arrayReplyData['messages'][0]['action'][0]['area'][0]['x'] = "16";
+        $arrayReplyData['messages'][0]['action'][0]['area'][0]['y'] = "18";
+        $arrayReplyData['messages'][0]['action'][0]['area'][0]['width'] = "1006";
+        $arrayReplyData['messages'][0]['action'][0]['area'][0]['height'] = "1001";
 
 
 
