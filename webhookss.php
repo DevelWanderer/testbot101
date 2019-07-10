@@ -82,7 +82,7 @@ $content = file_get_contents('php://input');
             }
             break;
         default:
-            $textReplyMessage = json_encode($arrayJson);
+            $textReplyMessage => json_encode($arrayJson);
             break;
     }
 }
