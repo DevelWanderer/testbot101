@@ -47,6 +47,7 @@ $content = file_get_contents('php://input');
   $arrayHeader[] = "Content-Type: application/json";
   $arrayHeader[] = "Authorization: Bearer {$access_token}";
   $image_url = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
+
   //รับข้อความจากผู้ใช้
   $message = $arrayJson['events'][0]['message']['text'];
   //รับ id ของผู้ใช้
@@ -61,26 +62,37 @@ $content = file_get_contents('php://input');
      $arrayReplyData['messages'][1]['stickerId'] = "34";
      replyMsg($arrayHeaderr,$arrayReplyData);
   }
-  elseif($message == "วว"){
-        $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayReplyData  = new TemplateMessageBuilder('Confirm Template',
-        new ConfirmTemplateBuilder(
-                'Confirm template builder', // ข้อความแนะนำหรือบอกวิธีการ หรือคำอธิบาย
-                array(
-                    new MessageTemplateActionBuilder(
-                        'Yes', // ข้อความสำหรับปุ่มแรก
-                        'YES'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-                    ),
-                    new MessageTemplateActionBuilder(
-                        'No', // ข้อความสำหรับปุ่มแรก
-                        'NO' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-                    )
-                )
-        )
-    );
+  elseif(!is_null($arrayJson)){
+    // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
+    $replyToken = $events['events'][0]['replyToken'];
+    $typeMessage = $events['events'][0]['message']['type'];
+    $userMessage = $events['events'][0]['message']['text'];
+    switch ($typeMessage){
+        case 'text':
+            switch ($userMessage) {
+                case "A":
+                    $textReplyMessage = "คุณพิมพ์ A";
+                    break;
+                case "B":
+                    $textReplyMessage = "คุณพิมพ์ B";
+                    break;
+                default:
+                    $textReplyMessage = " คุณไม่ได้พิมพ์ A และ B";
+                    break;
+            }
+            break;
+        default:
+            $textReplyMessage = json_encode($events);
+            break;
+    }
+}
+// ส่วนของคำสั่งจัดเตียมรูปแบบข้อความสำหรับส่ง
+$textMessageBuilder = new TextMessageBuilder($textReplyMessage);
 
+//l ส่วนของคำสั่งตอบกลับข้อความ
+$response = $bot->replyMessage($replyToken,$textMessageBuilder);
 
-        replyMsg($arrayHeaderr,$arrayReplyData);
+      //  replyMsg($arrayHeaderr,$arrayReplyData);
     }
 
     elseif($message == "*แมว*"){
