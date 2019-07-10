@@ -86,7 +86,7 @@ $content = file_get_contents('php://input');
             break;
     }
 }
-        $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
+
         replyMsg($arrayHeaderr,$arrayReplyData,$textReplyMessage);
     }
 
@@ -114,7 +114,7 @@ $content = file_get_contents('php://input');
          curl_setopt($chr, CURLOPT_HEADER, false);
          curl_setopt($chr, CURLOPT_POST, true);
          curl_setopt($chr, CURLOPT_HTTPHEADER, $arrayHeaderr);
-         curl_setopt($chr, CURLOPT_POSTFIELDS, json_encode($arrayReplyData));
+         curl_setopt($chr, CURLOPT_POSTFIELDS, json_encode($arrayReplyData,$textReplyMessage));
          curl_setopt($chr, CURLOPT_RETURNTRANSFER,true);
          curl_setopt($chr, CURLOPT_SSL_VERIFYPEER, false);
          $resultr = curl_exec($chr);
