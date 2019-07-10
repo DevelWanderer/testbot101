@@ -63,26 +63,21 @@ $content = file_get_contents('php://input');
   }
   elseif($message == "วว"){
         $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayReplyData = new BubbleContainerBuilder(
-            "ltr",  // กำหนด NULL หรือ "ltr" หรือ "rtl"
-            NULL,NULL,
-            new BoxComponentBuilder(
-                "horizontal",
+        $arrayReplyData  = new TemplateMessageBuilder('Confirm Template',
+        new ConfirmTemplateBuilder(
+                'Confirm template builder', // ข้อความแนะนำหรือบอกวิธีการ หรือคำอธิบาย
                 array(
-                    new TextComponentBuilder("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.",NULL,NULL,NULL,NULL,NULL,true)
-                )
-            ),
-            new BoxComponentBuilder(
-                "horizontal",
-                array(
-                    new ButtonComponentBuilder(
-                        new UriTemplateActionBuilder("GO","http://niik.in"),
-                        NULL,NULL,NULL,"primary"
+                    new MessageTemplateActionBuilder(
+                        'Yes', // ข้อความสำหรับปุ่มแรก
+                        'YES'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                    ),
+                    new MessageTemplateActionBuilder(
+                        'No', // ข้อความสำหรับปุ่มแรก
+                        'NO' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                     )
                 )
-            )
-        );
+        )
+    );
 
 
         replyMsg($arrayHeaderr,$arrayReplyData);
