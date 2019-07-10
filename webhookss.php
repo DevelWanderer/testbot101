@@ -3,8 +3,8 @@ require 'vendor/autoload.php';
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 require_once 'bot_settings.php';
 //$access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
-$httpClient = new CurlHTTPClient(LINE_MESSAGE_ACCESS_TOKEN);
-$bot = new LINEBot($httpClient, array('channelSecret' => LINE_MESSAGE_CHANNEL_SECRET));
+$httpClient = new CurlHTTPClient('LINE_MESSAGE_ACCESS_TOKEN');
+$bot = new LINEBot($httpClient, array('channelSecret' => 'LINE_MESSAGE_CHANNEL_SECRET'));
 
 
 
@@ -97,6 +97,9 @@ $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
 
 //l ส่วนของคำสั่งตอบกลับข้อความ
 $response = $bot->replyMessage($replyToken,$textMessageBuilder);
+if ($response->isSucceeded()) {
+    echo 'Succeeded!';
+    return;
 
       //  replyMsg($arrayHeaderr,$arrayReplyData);
     }
