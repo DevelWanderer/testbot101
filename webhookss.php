@@ -1,14 +1,7 @@
 <?php // callback.php
-require 'vendor/autoload.php';
-require_once 'bot_settings.php';
-require_once ('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-
-//$access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
-$httpClient = new CurlHTTPClient('LINE_MESSAGE_ACCESS_TOKEN');
-$bot = new LINEBot($httpClient, array('channelSecret' => 'LINE_MESSAGE_CHANNEL_SECRET'));
-
-
-
+require "vendor/autoload.php";
+require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+$access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
@@ -71,9 +64,9 @@ $content = file_get_contents('php://input');
   }
   elseif(!is_null($arrayJson)){
     // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
-    $replyToken = $events['events'][0]['replyToken'];
-    $typeMessage = $events['events'][0]['message']['type'];
-    $userMessage = $events['events'][0]['message']['text'];
+    $arrayReplyData = $arrayJson['events'][0]['replyToken'];
+    $typeMessage = $arrayJson['events'][0]['message']['type'];
+    $userMessage = $arrayJson['events'][0]['message']['text'];
     switch ($typeMessage){
         case 'text':
             switch ($userMessage) {
@@ -89,20 +82,12 @@ $content = file_get_contents('php://input');
             }
             break;
         default:
-            $textReplyMessage = json_encode($events);
+            $textReplyMessage = json_encode($arrayJson);
             break;
     }
 }
-// ส่วนของคำสั่งจัดเตียมรูปแบบข้อความสำหรับส่ง
-$textMessageBuilder = new TextMessageBuilder($textReplyMessage);
-
-//l ส่วนของคำสั่งตอบกลับข้อความ
-$response = $bot->replyMessage($replyToken,$textMessageBuilder);
-if ($response->isSucceeded()) {
-    echo 'Succeeded!';
-    return;
-
-      //  replyMsg($arrayHeaderr,$arrayReplyData);
+        $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
+        replyMsg($arrayHeaderr,$arrayReplyData,$textReplyMessage);
     }
 
     elseif($message == "*แมว*"){
@@ -122,7 +107,7 @@ if ($response->isSucceeded()) {
       replyMsg($arrayHeaderr,$arrayReplyData);
     }
 
-    function replyMsg($arrayHeaderr,$arrayReplyData){
+    function replyMsg($arrayHeaderr,$arrayReplyData,$textReplyMessage){
          $strUrlr = "https://api.line.me/v2/bot/message/reply";
          $chr = curl_init();
          curl_setopt($chr, CURLOPT_URL,$strUrlr);
