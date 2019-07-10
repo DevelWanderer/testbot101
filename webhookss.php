@@ -2,9 +2,9 @@
 require "vendor/autoload.php";
 require_once('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
-use LINE\LINEBot;
-use LINE\LINEBot\HTTPClient;
-use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+//use LINE\LINEBot;
+//use LINE\LINEBot\HTTPClient;
+//use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 //use LINE\LINEBot\Event;
 //use LINE\LINEBot\Event\BaseEvent;
 //use LINE\LINEBot\Event\MessageEvent;
