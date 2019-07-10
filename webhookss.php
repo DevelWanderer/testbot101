@@ -29,20 +29,28 @@ $content = file_get_contents('php://input');
      $arrayReplyData['messages'][1]['stickerId'] = "34";
      replyMsg($arrayHeaderr,$arrayReplyData);
   }
-  elseif($message == "รูป"){
+  elseif($message == "วว"){
         $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayReplyData['messages'][0]['type'] = "imagemap";
-        $arrayReplyData['messages'][0]['baseUrl'] = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png";
-        $arrayReplyData['messages'][0]['altText'] = "This is an imagemap";
-        $arrayReplyData['messages'][0]['baseSize'][0]['width'] = "1040";
-        $arrayReplyData['messages'][0]['baseSize'][1]['height'] = "1040";
-        $arrayReplyData['messages'][0]['action'][0]['type'] = "uri";
-        $arrayReplyData['messages'][0]['action'][1]['linkUri']  = "https://google.com";
-        $arrayReplyData['messages'][0]['action'][2]['area'][0]['x'] = "16";
-        $arrayReplyData['messages'][0]['action'][2]['area'][1]['y'] = "18";
-        $arrayReplyData['messages'][0]['action'][2]['area'][2]['width'] = "1006";
-        $arrayReplyData['messages'][0]['action'][2]['area'][3]['height'] = "1001";
-
+        $arrayReplyData = new BubbleContainerBuilder(
+            "ltr",  // กำหนด NULL หรือ "ltr" หรือ "rtl"
+            NULL,NULL,
+            new BoxComponentBuilder(
+                "horizontal",
+                array(
+                    new TextComponentBuilder("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.",NULL,NULL,NULL,NULL,NULL,true)
+                )
+            ),
+            new BoxComponentBuilder(
+                "horizontal",
+                array(
+                    new ButtonComponentBuilder(
+                        new UriTemplateActionBuilder("GO","http://niik.in"),
+                        NULL,NULL,NULL,"primary"
+                    )
+                )
+            )
+        );
 
 
         replyMsg($arrayHeaderr,$arrayReplyData);
