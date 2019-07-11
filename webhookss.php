@@ -9,9 +9,9 @@ $bot = new LINEBot($httpClient, array('channelSecret' => LINE_MESSAGE_CHANNEL_SE
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
-//use LINE\LINEBot\Event;
-//use LINE\LINEBot\Event\BaseEvent;
-//use LINE\LINEBot\Event\MessageEvent;
+use LINE\LINEBot\Event;
+use LINE\LINEBot\Event\BaseEvent;
+use LINE\LINEBot\Event\MessageEvent;
 use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
