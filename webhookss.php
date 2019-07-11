@@ -66,10 +66,10 @@ $content = file_get_contents('php://input');
     // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
     $arrayReplyData = $arrayJson['events'][0]['replyToken'];
     $typeMessage = $arrayJson['events'][0]['message']['type'];
-    $userMessage = $arrayJson['events'][0]['message']['text'];
+    //$userMessage = $arrayJson['events'][0]['message']['text'];
     switch ($typeMessage){
         case 'text':
-            switch ($userMessage) {
+            switch ($message) {
                 case "A":
                     $textReplyMessage = "คุณพิมพ์ A";
                     break;
