@@ -53,7 +53,7 @@ $content = file_get_contents('php://input');
   //รับ id ของผู้ใช้
   $id = $arrayJson['events'][0]['source']['userId'];
   #ตัวอย่าง Message Type "Text + Sticker"
-  if($message == "สวัสดี"){
+  /*if($message == "สวัสดี"){
      $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
      $arrayReplyData['messages'][0]['type'] = "text";
      $arrayReplyData['messages'][0]['text'] = "สวัสดีจ้าาา".$id;
@@ -61,8 +61,8 @@ $content = file_get_contents('php://input');
      $arrayReplyData['messages'][1]['packageId'] = "2";
      $arrayReplyData['messages'][1]['stickerId'] = "34";
      replyMsg($arrayHeaderr,$arrayReplyData);
-  }
-  elseif(!is_null($arrayJson)){
+  }*/
+  if(!is_null($arrayJson)){
     // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
     $arrayReplyData = $arrayJson['events'][0]['replyToken'];
     $typeMessage = $arrayJson['events'][0]['message']['type'];
