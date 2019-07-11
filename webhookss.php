@@ -6,9 +6,9 @@ require_once 'bot_settings.php';
 $httpClient = new CurlHTTPClient(LINE_MESSAGE_ACCESS_TOKEN);
 $bot = new LINEBot($httpClient, array('channelSecret' => LINE_MESSAGE_CHANNEL_SECRET));
 
-//use LINE\LINEBot;
-//use LINE\LINEBot\HTTPClient;
-//use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use LINE\LINEBot;
+use LINE\LINEBot\HTTPClient;
+use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 //use LINE\LINEBot\Event;
 //use LINE\LINEBot\Event\BaseEvent;
 //use LINE\LINEBot\Event\MessageEvent;
