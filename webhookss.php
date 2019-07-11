@@ -44,12 +44,12 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuild
 // Get POST body content
 $content = file_get_contents('php://input');
   $arrayJson = json_decode($content, true);
-  $arrayHeaderr = array();
+/*  $arrayHeaderr = array();
   $arrayHeaderr[] = "Content-Type: application/json";
   $arrayHeaderr[] = "Authorization: Bearer {$access_token}";
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
-  $arrayHeader[] = "Authorization: Bearer {$access_token}";
+  $arrayHeader[] = "Authorization: Bearer {$access_token}";*/
   $image_url = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
 
   //รับข้อความจากผู้ใช้
