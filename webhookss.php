@@ -3,8 +3,7 @@ require "vendor/autoload.php";
 require_once ('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 //require_once 'bot_settings.php';
 //$access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
-$httpClient = new CurlHTTPClient('YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=');
-$bot = new LINEBot($httpClient, array('channelSecret' => 'db32fb138596ee65f9fdb320c4a9375c'));
+
 
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient;
@@ -40,7 +39,8 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
 
-
+$httpClient = new CurlHTTPClient('YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=');
+$bot = new LINEBot($httpClient, array('channelSecret' => 'db32fb138596ee65f9fdb320c4a9375c'));
 // Get POST body content
 $content = file_get_contents('php://input');
   $arrayJson = json_decode($content, true);
