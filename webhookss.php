@@ -85,9 +85,9 @@ $content = file_get_contents('php://input');
             $textReplyMessage => json_encode($arrayJson);
             break;*/
     }
+      $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
 
-
-        replyMsg($arrayHeaderr,$arrayReplyData,$textReplyMessage);
+        replyMsg($arrayHeaderr,$arrayReplyData,$textMessageBuilder);
 }
   /*  elseif($message == "*แมว*"){
 
