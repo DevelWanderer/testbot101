@@ -62,7 +62,7 @@ $content = file_get_contents('php://input');
      $arrayReplyData['messages'][1]['stickerId'] = "34";
      replyMsg($arrayHeaderr,$arrayReplyData);
   }*/
-  if(!is_null($arrayJson)){
+  if(!empty($arrayJson)){
     // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
     $arrayReplyData = $arrayJson['events'][0]['replyToken'];
     $typeMessage = $arrayJson['events'][0]['message']['type'];
