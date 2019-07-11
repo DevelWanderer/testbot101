@@ -81,9 +81,9 @@ $content = file_get_contents('php://input');
                     break;
             }
             break;
-        default:
+      /*  default:
             $textReplyMessage => json_encode($arrayJson);
-            break;
+            break;*/
     }
 }
 
