@@ -8,7 +8,7 @@ $access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8M
 //use LINE\LINEBot\Event;
 //use LINE\LINEBot\Event\BaseEvent;
 //use LINE\LINEBot\Event\MessageEvent;
-use LINE\LINEBot\MessageBuilder;
+/*use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
 use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
@@ -35,7 +35,7 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
-
+*/
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -90,7 +90,7 @@ $content = file_get_contents('php://input');
         replyMsg($arrayHeaderr,$arrayReplyData,$textReplyMessage);
     }
 
-    elseif($message == "*แมว*"){
+  /*  elseif($message == "*แมว*"){
 
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
       $arrayReplyData['messages'][0]['type'] = "image";
@@ -105,7 +105,7 @@ $content = file_get_contents('php://input');
       $arrayReplyData['messages'][0]['originalContentUrl'] = $image_urla;
       $arrayReplyData['messages'][0]['previewImageUrl'] = $image_urla;
       replyMsg($arrayHeaderr,$arrayReplyData);
-    }
+    }*/
 
     function replyMsg($arrayHeaderr,$arrayReplyData,$textReplyMessage){
          $strUrlr = "https://api.line.me/v2/bot/message/reply";
