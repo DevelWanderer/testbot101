@@ -89,7 +89,7 @@ $content = file_get_contents('php://input');
             $textReplyMessage => json_encode($arrayJson);
             break;*/
     }
-        $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
+      //  $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
 
         replyMsg($arrayHeaderr,$arrayReplyData,$textMessageBuilder);
 }
