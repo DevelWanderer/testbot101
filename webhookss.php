@@ -85,11 +85,10 @@ $content = file_get_contents('php://input');
             $textReplyMessage => json_encode($arrayJson);
             break;*/
     }
-}
+
 
         replyMsg($arrayHeaderr,$arrayReplyData,$textReplyMessage);
-    }
-
+}
   /*  elseif($message == "*แมว*"){
 
       $arrayReplyData['replyToken'] = $arrayJson['events'][0]['replyToken'];
