@@ -1,54 +1,20 @@
 <?php // callback.php
 require "vendor/autoload.php";
 require_once ('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-//require_once 'bot_settings.php';
-//$access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
 
-use LINE\LINEBot;
-use LINE\LINEBot\HTTPClient;
-use LINE\LINEBot\HTTPClient\CurlHTTPClient;
-use LINE\LINEBot\Event;
-use LINE\LINEBot\Event\BaseEvent;
-use LINE\LINEBot\Event\MessageEvent;
-use LINE\LINEBot\MessageBuilder;
-use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
-use LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
-use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
-use LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
-use LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
-use LINE\LINEBot\MessageBuilder\VideoMessageBuilder;
-use LINE\LINEBot\ImagemapActionBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder ;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
-use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
-use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
-use LINE\LINEBot\MessageBuilder\MultiMessageBuilder;
-use LINE\LINEBot\TemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
+$access_token = 'YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=';
 
-$httpClient = new CurlHTTPClient('YmOTeNtLzS70P55TfovHyurPZc0jBcUGR4GSFlEqzJQmCbtsoAOurD6SFUbRG8MvHaAQV3gF/1Fj29KWMkHEpIQuUS1Wn4p18JW2Mjx4ky0XxqUgTVJ/x1qR9CR7UwuQ854y0cJhethnu3CPfPT9XQdB04t89/1O/w1cDnyilFU=');
-$bot = new LINEBot($httpClient, array('channelSecret' => 'db32fb138596ee65f9fdb320c4a9375c'));
+
+
 // Get POST body content
 $content = file_get_contents('php://input');
   $arrayJson = json_decode($content, true);
   $arrayHeaderr = array();
   $arrayHeaderr[] = "Content-Type: application/json";
-  $arrayHeaderr[] = "Authorization: Bearer {$bot}";
+  $arrayHeaderr[] = "Authorization: Bearer {$access_token}";
   $arrayHeader = array();
   $arrayHeader[] = "Content-Type: application/json";
-  $arrayHeader[] = "Authorization: Bearer {$bot}";
+  $arrayHeader[] = "Authorization: Bearer {$access_token}";
   $image_url = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
 
   //รับข้อความจากผู้ใช้
@@ -65,32 +31,18 @@ $content = file_get_contents('php://input');
      $arrayReplyData['messages'][1]['stickerId'] = "34";
      replyMsg($arrayHeaderr,$arrayReplyData);
   }*/
-  if(!empty($arrayJson)){
+  if($message == "ex"){
     // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
     $arrayReplyData = $arrayJson['events'][0]['replyToken'];
-    $typeMessage = $arrayJson['events'][0]['message']['type'];
-    //$userMessage = $arrayJson['events'][0]['message']['text'];
-    switch ($typeMessage){
-        case 'text':
-            switch ($message) {
-                case "A":
-                    $textReplyMessage = "คุณพิมพ์ A";
-                    break;
-                case "B":
-                    $textReplyMessage = "คุณพิมพ์ B";
-                    break;
-                default:
-                    $textReplyMessage = " คุณไม่ได้พิมพ์ A และ B";
-                    break;
-            }
-            break;
-      /*  default:
-            $textReplyMessage => json_encode($arrayJson);
-            break;*/
-    }
-      //  $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
+    $arrayReplyData['messages'][0]['type'] = "imagemap";
+    $arrayReplyData['messages'][0]['baseUrl'] = "https://wealththai.org/testbot101-master/image/38409924996_befaf1f33b_o.png/1040";
+    $arrayReplyData['messages'][0]['altText'] = "imagemap0";
+    $arrayReplyData['messages'][0]['baseSize'] = 'width' => "1040",'height' => "1040";
+    $arrayReplyData['messages'][0]['action'][0]['type'] = "uri";
+    $arrayReplyData['messages'][0]['action'][0]['area'] = 'x' => "16", 'y' => "18", 'width'=>"1006",'height'=>"1001";
+    $arrayReplyData['messages'][0]['action'][0]['linkUri'] = "https://google.com";
 
-        replyMsg($arrayHeaderr,$arrayReplyData,$textReplyMessage);
+        replyMsg($arrayHeaderr,$arrayReplyData);
 }
   /*  elseif($message == "*แมว*"){
 
