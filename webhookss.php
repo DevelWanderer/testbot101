@@ -90,7 +90,7 @@ $content = file_get_contents('php://input');
     }
       //  $textMessageBuilder = new TextMessageBuilder($textReplyMessage);
 
-        replyMsg($arrayHeaderr,$arrayReplyData,$textMessageBuilder);
+        replyMsg($arrayHeaderr,$arrayReplyData,$textReplyMessage);
 }
   /*  elseif($message == "*แมว*"){
 
