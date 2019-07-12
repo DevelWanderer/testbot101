@@ -39,8 +39,8 @@ $content = file_get_contents('php://input');
     $arrayReplyData['messages'][0]['altText'] = "imagemap0";
     $arrayReplyData['messages'][0]['baseSize'] = 'width' => "1040",'height' => "1040";
     $arrayReplyData['messages'][0]['action'][0]['type'] = "uri";
-    $arrayReplyData['messages'][0]['action'][0]['area'] = 'x' => "16", 'y' => "18", 'width'=>"1006",'height'=>"1001";
-    $arrayReplyData['messages'][0]['action'][0]['linkUri'] = "https://google.com";
+    $arrayReplyData['messages'][0]['action'][1]['area'] = 'x' => "16", 'y' => "18", 'width'=>"1006",'height'=>"1001";
+    $arrayReplyData['messages'][0]['action'][2]['linkUri'] = "https://google.com";
 
         replyMsg($arrayHeaderr,$arrayReplyData);
 }
