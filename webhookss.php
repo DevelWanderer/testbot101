@@ -13,7 +13,7 @@ require_once ('vendor/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
-    if($message == "hi"){
+    if($message == "test"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
